@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-schema/cardiff-meta-schema.json",
+  "title": "Meta",
+  "description": "Standard response envelope metadata returned by all Cardiff University data APIs alongside the data object.",
+  "type": "object",
+  "required": ["code", "contentType", "count", "errorStatus"],
+  "properties": {
+    "code": { "type": "integer", "format": "int32", "description": "HTTP-style status code for the response." },
+    "count": { "type": "integer", "format": "int32", "description": "Number of items returned." },
+    "errorStatus": { "type": "boolean", "description": "Whether the response represents an error." },
+    "contentType": { "type": "string", "description": "Content type of the payload." },
+    "errorMessage": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}

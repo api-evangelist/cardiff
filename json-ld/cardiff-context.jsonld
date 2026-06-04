@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "cardiff": "https://data.cardiff.ac.uk/vocab#",
+    "@vocab": "https://data.cardiff.ac.uk/vocab#",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "code": "cardiff:code",
+    "Organization": "schema:CollegeOrUniversity",
+    "Course": {
+      "@id": "schema:Course",
+      "@context": {
+        "code": "cardiff:courseCode",
+        "name": "schema:name",
+        "qualification": "schema:educationalCredentialAwarded",
+        "attendance": "cardiff:modeOfAttendance",
+        "length": "schema:timeRequired",
+        "subjects": "schema:about",
+        "schools": "schema:provider",
+        "group": "cardiff:courseGroup"
+      }
+    },
+    "Module": {
+      "@id": "schema:Course",
+      "@context": {
+        "code": "cardiff:moduleCode",
+        "name": "schema:name",
+        "credits": "cardiff:credits",
+        "level": "cardiff:level",
+        "language": "schema:inLanguage",
+        "school": "schema:provider",
+        "subject": "schema:about",
+        "moduleLeader": "cardiff:moduleLeader"
+      }
+    },
+    "School": {
+      "@id": "schema:CollegeDepartment",
+      "@context": {
+        "code": "cardiff:schoolCode",
+        "name": "schema:name",
+        "parent": "schema:parentOrganization"
+      }
+    },
+    "Publication": {
+      "@id": "schema:ScholarlyArticle",
+      "@context": {
+        "eprintid": "cardiff:eprintId",
+        "title": "schema:name",
+        "publisher": "schema:publisher",
+        "date": "schema:datePublished",
+        "id_number": "schema:identifier",
+        "uri": "schema:url",
+        "official_url": "schema:sameAs",
+        "rioxx2_author": "schema:author",
+        "publication": "schema:isPartOf"
+      }
+    }
+  },
+  "@type": "schema:CollegeOrUniversity",
+  "name": "Cardiff University",
+  "url": "https://www.cardiff.ac.uk/",
+  "description": "Public research university in Cardiff, Wales, exposing institutional data APIs for courses, modules, lookups and research publications."
+}

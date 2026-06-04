@@ -1,0 +1,44 @@
+extends: []
+formats:
+  - oas3
+documentationUrl: https://data.cardiff.ac.uk/devportal/
+rules:
+  cardiff-info-contact-email:
+    description: API info should advertise the Cardiff integration contact email.
+    message: "{{description}}"
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  cardiff-https-servers:
+    description: Cardiff APIs are served over HTTPS via the api.data.cardiff.ac.uk gateway.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+  cardiff-oauth2-security:
+    description: Operations should be protected by the OAuth2 security scheme (named "default").
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      field: default
+      function: truthy
+  cardiff-response-envelope:
+    description: Successful JSON responses should use the standard data + meta envelope.
+    severity: warn
+    given: $.paths[*][get].responses.200.content.application/json.schema.properties
+    then:
+      - field: data
+        function: truthy
+      - field: meta
+        function: truthy
+  cardiff-operation-summary:
+    description: Every operation should have a human-readable summary.
+    severity: warn
+    given: $.paths[*][get,post,put,delete]
+    then:
+      field: summary
+      function: truthy

@@ -1,0 +1,31 @@
+{
+  "data": {
+    "courses": [
+      {
+        "code": "UKBLA-LAW",
+        "name": "Law (LLB)",
+        "kisId": "10007814LLBLAW",
+        "length": "3",
+        "lengthUnit": "years",
+        "distanceLearn": "N",
+        "nextIntake": "2026-09",
+        "entryMethod": "UCAS",
+        "attendance": "Full-time",
+        "qualification": { "code": "BLA", "name": "Bachelor of Laws" },
+        "group": { "code": "Z101", "name": "Law" },
+        "subjects": [
+          { "code": "M100", "name": "Law", "posCode": "LAW" }
+        ],
+        "schools": [
+          { "flag": "Y", "code": "LAWPL", "name": "School of Law and Politics", "posCode": "LAW" }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "code": 200,
+    "count": 1,
+    "errorStatus": false,
+    "contentType": "application/json"
+  }
+}

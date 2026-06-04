@@ -1,0 +1,32 @@
+{
+  "data": {
+    "modules": [
+      {
+        "code": "CM1234",
+        "name": "Introduction to Programming",
+        "level": "4",
+        "credits": "20",
+        "language": "english",
+        "noOfPeriods": "1",
+        "type": "Taught",
+        "school": { "code": "COMSC", "name": "School of Computer Science and Informatics", "parent": "PHYSC" },
+        "subject": { "code": "G400", "name": "Computer Science" },
+        "moduleLeader": {
+          "forename": "Jane",
+          "surname": "Smith",
+          "fullName": "Dr Jane Smith",
+          "title": "Dr",
+          "staffId": "C1234567",
+          "username": "smithj",
+          "email": "smithj@cardiff.ac.uk"
+        }
+      }
+    ]
+  },
+  "meta": {
+    "code": 200,
+    "count": 1,
+    "errorStatus": false,
+    "contentType": "application/json"
+  }
+}

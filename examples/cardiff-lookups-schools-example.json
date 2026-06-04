@@ -1,0 +1,15 @@
+{
+  "data": {
+    "semesters": [
+      { "code": "COMSC", "name": "School of Computer Science and Informatics", "parent": "PHYSC" },
+      { "code": "LAWPL", "name": "School of Law and Politics", "parent": "ARTHU" },
+      { "code": "SOCSI", "name": "School of Social Sciences", "parent": "ARTHU" }
+    ]
+  },
+  "meta": {
+    "code": 200,
+    "count": 3,
+    "errorStatus": false,
+    "contentType": "application/json"
+  }
+}

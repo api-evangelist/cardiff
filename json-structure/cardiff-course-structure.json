@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-structure/cardiff-course-structure.json",
+  "name": "Course",
+  "description": "JSON Structure for a Cardiff University course (programme).",
+  "type": "object",
+  "properties": {
+    "code": { "type": "string" },
+    "name": { "type": "string" },
+    "kisId": { "type": "string" },
+    "length": { "type": "string" },
+    "lengthUnit": { "type": "string" },
+    "distanceLearn": { "type": "string" },
+    "nextIntake": { "type": "string" },
+    "entryMethod": { "type": "string" },
+    "attendance": { "type": "string" },
+    "qualification": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "subjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "posCode": { "type": "string" }
+        }
+      }
+    },
+    "schools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "flag": { "type": "string" },
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "posCode": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": ["code", "name"]
+}

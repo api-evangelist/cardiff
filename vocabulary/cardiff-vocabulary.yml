@@ -1,0 +1,54 @@
+vocabulary:
+  name: Cardiff University API Vocabulary
+  description: >-
+    Controlled vocabulary of the core domain terms used across Cardiff
+    University's institutional data APIs (Courses, Modules, Lookups and
+    Publications), derived from the published OpenAPI/Swagger definitions on
+    the data.cardiff.ac.uk developer portal.
+  version: "1.0.0"
+  terms:
+    - term: Course
+      definition: A programme of study leading to a qualification, identified by a unique course code.
+      tags: [courses, catalog]
+    - term: Course Group
+      definition: A grouping of related courses (for example by subject area), identified by a group code.
+      tags: [courses, catalog]
+    - term: Module
+      definition: A taught unit of study with a credit value and level, owned by a school.
+      tags: [modules, catalog]
+    - term: Occurrence
+      definition: A specific delivery instance of a module in a given academic period.
+      tags: [modules]
+    - term: Assessment
+      definition: An assessment component of a module, with type, percentage weighting and due timing.
+      tags: [modules, assessment]
+    - term: School
+      definition: An academic school within the University that owns courses and modules; has a code and optional parent.
+      tags: [lookups, organization]
+    - term: Subject
+      definition: A subject classification used to categorise courses and modules.
+      tags: [lookups, courses, modules]
+    - term: Qualification
+      definition: The award conferred by a course (e.g. Bachelor of Laws), identified by a qualification code.
+      tags: [lookups, courses]
+    - term: Level
+      definition: The academic level of a module (a lookup value).
+      tags: [lookups, modules]
+    - term: Semester
+      definition: A teaching period / semester code used in scheduling.
+      tags: [lookups]
+    - term: Year
+      definition: An academic year used to filter course and module data.
+      tags: [lookups]
+    - term: Publication
+      definition: A research output recorded in the institutional repository using RIOXX2 metadata.
+      tags: [publications, research]
+    - term: RIOXX2
+      definition: The RIOXX application profile metadata standard used to describe research publications.
+      tags: [publications, research, standard]
+    - term: Meta
+      definition: The standard response envelope metadata (code, count, errorStatus, contentType) returned by every API.
+      tags: [envelope, common]
+    - term: Module Leader
+      definition: The member of staff responsible for delivering a module.
+      tags: [modules, staff]

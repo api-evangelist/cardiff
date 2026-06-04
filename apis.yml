@@ -43,6 +43,8 @@ apis:
         url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
       - type: SignUp
         url: https://data.cardiff.ac.uk/devportal/
+      - type: OpenAPI
+        url: openapi/cardiff-courses.yaml
   - aid: cardiff:modules
     name: Modules
     description: >-
@@ -57,6 +59,8 @@ apis:
         url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
       - type: SignUp
         url: https://data.cardiff.ac.uk/devportal/
+      - type: OpenAPI
+        url: openapi/cardiff-modules.yaml
   - aid: cardiff:lookups
     name: Lookups
     description: >-
@@ -72,6 +76,8 @@ apis:
         url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
       - type: SignUp
         url: https://data.cardiff.ac.uk/devportal/
+      - type: OpenAPI
+        url: openapi/cardiff-lookups.yaml
   - aid: cardiff:publications
     name: Publications
     description: >-
@@ -87,6 +93,8 @@ apis:
         url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
       - type: SignUp
         url: https://data.cardiff.ac.uk/devportal/
+      - type: OpenAPI
+        url: openapi/cardiff-publications.yaml
   - aid: cardiff:echo
     name: EchoTest
     description: >-
@@ -99,6 +107,8 @@ apis:
     properties:
       - type: Documentation
         url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+      - type: OpenAPI
+        url: openapi/cardiff-echo.yaml
 common:
   - type: Website
     url: https://www.cardiff.ac.uk/

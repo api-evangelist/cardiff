@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-structure/cardiff-module-structure.json",
+  "name": "Module",
+  "description": "JSON Structure for a Cardiff University academic module.",
+  "type": "object",
+  "properties": {
+    "code": { "type": "string" },
+    "name": { "type": "string" },
+    "level": { "type": "string" },
+    "credits": { "type": "string" },
+    "language": { "type": "string" },
+    "noOfPeriods": { "type": "string" },
+    "type": { "type": "string" },
+    "school": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "parent": { "type": "string" }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "moduleLeader": {
+      "type": "object",
+      "properties": {
+        "forename": { "type": "string" },
+        "surname": { "type": "string" },
+        "fullName": { "type": "string" },
+        "title": { "type": "string" },
+        "staffId": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    }
+  },
+  "required": ["code", "name"]
+}

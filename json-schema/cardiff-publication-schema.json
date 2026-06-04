@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-schema/cardiff-publication-schema.json",
+  "title": "Publication",
+  "description": "A research publication recorded in Cardiff University's repository, as returned by the Publications API. Uses RIOXX2 metadata fields.",
+  "type": "object",
+  "required": ["eprintid", "title"],
+  "properties": {
+    "eprintid": { "type": "string", "description": "EPrints repository identifier." },
+    "eprint_status": { "type": "string" },
+    "title": { "type": "string", "description": "Publication title." },
+    "type": { "type": "string", "description": "Publication type." },
+    "date": { "type": "string" },
+    "date_type": { "type": "string" },
+    "publication": { "type": "string" },
+    "publisher": { "type": "string" },
+    "volume": { "type": "string" },
+    "pagerange": { "type": "string" },
+    "id_number": { "type": "string", "description": "Identifier such as DOI." },
+    "uri": { "type": "string", "description": "Repository URI for the publication." },
+    "official_url": { "type": "string" },
+    "coversheet": { "type": "string" },
+    "full_text_status": { "type": "string" },
+    "sword_depositor": { "type": "string" },
+    "harvardReference": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Harvard-format citation lines."
+    },
+    "rioxx2_title": { "type": "string" },
+    "rioxx2_type": { "type": "string" },
+    "rioxx2_version": { "type": "string" },
+    "rioxx2_version_of_record": { "type": "string" },
+    "rioxx2_format": { "type": "string" },
+    "rioxx2_identifier": { "type": "string" },
+    "rioxx2_publisher": { "type": "string" },
+    "rioxx2_publication_date": { "type": "string" },
+    "rioxx2_publication_datec": { "type": "string" },
+    "rioxx2_source": { "type": "string" },
+    "rioxx2_description": { "type": "string" },
+    "rioxx2_author": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": { "type": "string" }
+        }
+      }
+    },
+    "rioxx2_free_to_read": {
+      "type": "object",
+      "properties": {
+        "free_to_read": { "type": "string" }
+      }
+    },
+    "rioxx2_license_ref": {
+      "type": "object",
+      "properties": {
+        "license_ref": { "type": "string" },
+        "start_date": { "type": "string" }
+      }
+    }
+  }
+}

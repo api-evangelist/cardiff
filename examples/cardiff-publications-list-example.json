@@ -1,0 +1,35 @@
+{
+  "data": {
+    "publications": [
+      {
+        "eprintid": "123456",
+        "eprint_status": "archive",
+        "title": "An Example Study in Open Research Data",
+        "type": "article",
+        "date": "2025",
+        "publication": "Journal of Example Research",
+        "publisher": "Example Press",
+        "volume": "12",
+        "pagerange": "100-115",
+        "id_number": "10.1000/example.2025.123",
+        "uri": "https://orca.cardiff.ac.uk/id/eprint/123456",
+        "official_url": "https://doi.org/10.1000/example.2025.123",
+        "full_text_status": "public",
+        "harvardReference": [
+          "Smith, J. and Jones, A. 2025. An Example Study in Open Research Data. Journal of Example Research 12, pp. 100-115."
+        ],
+        "rioxx2_author": [
+          { "author": "Smith, Jane" },
+          { "author": "Jones, Alan" }
+        ],
+        "rioxx2_free_to_read": { "free_to_read": "true" }
+      }
+    ]
+  },
+  "meta": {
+    "code": 200,
+    "count": 1,
+    "errorStatus": false,
+    "contentType": "application/json"
+  }
+}

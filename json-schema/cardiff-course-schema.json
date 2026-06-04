@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-schema/cardiff-course-schema.json",
+  "title": "Course",
+  "description": "A course (programme) offered by Cardiff University, as returned by the Courses API.",
+  "type": "object",
+  "required": ["code", "name"],
+  "properties": {
+    "code": { "type": "string", "description": "Unique course code." },
+    "name": { "type": "string", "description": "Course title." },
+    "kisId": { "type": "string", "description": "Key Information Set identifier." },
+    "length": { "type": "string", "description": "Course length." },
+    "lengthUnit": { "type": "string", "description": "Unit for the course length (e.g. years)." },
+    "distanceLearn": { "type": "string", "description": "Distance learning flag (Y/N)." },
+    "externalReturnFormat": { "type": "string" },
+    "nextIntake": { "type": "string" },
+    "entryMethod": { "type": "string" },
+    "attendance": { "type": "string", "description": "Mode of attendance (e.g. Full-time, Part-time)." },
+    "qualification": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "market": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "subjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "posCode": { "type": "string" }
+        }
+      }
+    },
+    "schools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "flag": { "type": "string" },
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "posCode": { "type": "string" }
+        }
+      }
+    },
+    "staff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string" },
+          "name": { "type": "string" },
+          "posCode": { "type": "string" },
+          "staffId": { "type": "string" }
+        }
+      }
+    },
+    "accreditations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "website": { "type": "string" },
+          "name": { "type": "string" },
+          "posCode": { "type": "string" },
+          "accURL": { "type": "string" }
+        }
+      }
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "posCode": { "type": "string" },
+          "text": { "type": "string" },
+          "title": { "type": "string" }
+        }
+      }
+    },
+    "applyPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "year": { "type": "string" },
+          "link": { "type": "string" },
+          "posCode": { "type": "string" },
+          "startDate": { "type": "string" }
+        }
+      }
+    }
+  }
+}

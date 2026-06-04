@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-schema/cardiff-module-schema.json",
+  "title": "Module",
+  "description": "An academic module taught at Cardiff University, as returned by the Modules API.",
+  "type": "object",
+  "required": ["code", "name"],
+  "properties": {
+    "code": { "type": "string", "description": "Unique module code." },
+    "name": { "type": "string", "description": "Module title." },
+    "level": { "type": "string", "description": "Academic level of the module." },
+    "credits": { "type": "string", "description": "Credit value of the module." },
+    "language": { "type": "string", "description": "Language of delivery." },
+    "noOfPeriods": { "type": "string", "description": "Number of teaching periods." },
+    "type": { "type": "string", "description": "Module type." },
+    "school": {
+      "type": "object",
+      "description": "School that owns the module.",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "parent": { "type": "string" }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "moduleLeader": {
+      "type": "object",
+      "properties": {
+        "forename": { "type": "string" },
+        "surname": { "type": "string" },
+        "fullName": { "type": "string" },
+        "title": { "type": "string" },
+        "staffId": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    }
+  }
+}

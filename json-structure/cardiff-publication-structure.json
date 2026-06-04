@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/json-structure/cardiff-publication-structure.json",
+  "name": "Publication",
+  "description": "JSON Structure for a Cardiff University research publication (RIOXX2 metadata).",
+  "type": "object",
+  "properties": {
+    "eprintid": { "type": "string" },
+    "eprint_status": { "type": "string" },
+    "title": { "type": "string" },
+    "type": { "type": "string" },
+    "date": { "type": "string" },
+    "publication": { "type": "string" },
+    "publisher": { "type": "string" },
+    "volume": { "type": "string" },
+    "pagerange": { "type": "string" },
+    "id_number": { "type": "string" },
+    "uri": { "type": "string" },
+    "official_url": { "type": "string" },
+    "full_text_status": { "type": "string" },
+    "harvardReference": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rioxx2_author": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "author": { "type": "string" }
+        }
+      }
+    },
+    "rioxx2_free_to_read": {
+      "type": "object",
+      "properties": {
+        "free_to_read": { "type": "string" }
+      }
+    }
+  },
+  "required": ["eprintid", "title"]
+}
