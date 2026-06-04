@@ -1,0 +1,121 @@
+---
+aid: cardiff
+name: Cardiff University
+description: >-
+  Cardiff University is a public research university in Cardiff, Wales, United
+  Kingdom, ranked #186 in the QS World University Rankings 2025. The university
+  operates a public developer portal at data.cardiff.ac.uk (powered by WSO2 API
+  Manager) exposing a small set of RESTful institutional APIs covering courses,
+  modules, lookups, and research publications. The APIs are OAuth2-secured:
+  integration requires creating an application and generating consumer keys and
+  access tokens, with external developer access granted on request by emailing
+  integration@cardiff.ac.uk. The gateway is hosted at api.data.cardiff.ac.uk.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - United Kingdom
+  - Wales
+  - Open Data
+  - Courses
+  - Research
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: cardiff:courses
+    name: Courses
+    description: >-
+      The Courses API provides a simple interface for applications that want to
+      retrieve lists of courses or information relating to a specific course
+      within Cardiff University. Clients can filter courses by school, language,
+      level and year. OAuth2-secured; requires consumer keys and an access token.
+    humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    baseURL: https://api.data.cardiff.ac.uk/courses/v1
+    tags: [ Courses, Catalog, Education ]
+    properties:
+      - type: Documentation
+        url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+      - type: SignUp
+        url: https://data.cardiff.ac.uk/devportal/
+  - aid: cardiff:modules
+    name: Modules
+    description: >-
+      The Modules API exposes information about academic modules offered at
+      Cardiff University via the institutional developer portal. OAuth2-secured;
+      requires consumer keys and an access token.
+    humanURL: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+    baseURL: https://api.data.cardiff.ac.uk/modules/v1
+    tags: [ Modules, Catalog, Education ]
+    properties:
+      - type: Documentation
+        url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+      - type: SignUp
+        url: https://data.cardiff.ac.uk/devportal/
+  - aid: cardiff:lookups
+    name: Lookups
+    description: >-
+      The Lookups API provides reference/lookup data used across Cardiff
+      University's institutional APIs (for example code lists used to filter
+      courses and modules). OAuth2-secured; requires consumer keys and an access
+      token.
+    humanURL: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+    baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+    tags: [ Lookups, Reference Data ]
+    properties:
+      - type: Documentation
+        url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+      - type: SignUp
+        url: https://data.cardiff.ac.uk/devportal/
+  - aid: cardiff:publications
+    name: Publications
+    description: >-
+      The Publications API provides a simple interface for applications that
+      want to retrieve lists of publications or information relating to a
+      specific research publication within Cardiff University. OAuth2-secured;
+      requires consumer keys and an access token.
+    humanURL: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+    baseURL: https://api.data.cardiff.ac.uk/publications/v1
+    tags: [ Publications, Research, Education ]
+    properties:
+      - type: Documentation
+        url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+      - type: SignUp
+        url: https://data.cardiff.ac.uk/devportal/
+  - aid: cardiff:echo
+    name: EchoTest
+    description: >-
+      An echo/test utility API published on Cardiff University's developer
+      portal, typically used to verify connectivity and credentials against the
+      gateway. OAuth2-secured.
+    humanURL: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    baseURL: https://api.data.cardiff.ac.uk/echo/v1
+    tags: [ Testing, Utility ]
+    properties:
+      - type: Documentation
+        url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+common:
+  - type: Website
+    url: https://www.cardiff.ac.uk/
+  - type: DeveloperPortal
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Authentication
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/cardiff-university/
+  - type: Plans
+    url: plans/cardiff-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cardiff-rate-limits.yml
+  - type: FinOps
+    url: finops/cardiff-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

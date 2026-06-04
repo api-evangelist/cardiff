@@ -1,0 +1,49 @@
+---
+name: Cardiff University
+description: Cardiff University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      Cardiff University runs a real, public WSO2 API Manager developer portal at
+      data.cardiff.ac.uk/devportal. The portal's anonymous devportal API
+      (/api/am/devportal/v2/apis) returned a live catalog of five published APIs:
+      Courses, Modules, Lookups, Publications and EchoTest, all served from the
+      gateway at api.data.cardiff.ac.uk. Endpoints are OAuth2-secured (a direct
+      call to /courses/v1 returned HTTP 401), and external developer access is
+      granted on request via integration@cardiff.ac.uk. The marketing landing
+      page (data.cardiff.ac.uk root) and several institutional sites
+      (www.cardiff.ac.uk, orca.cardiff.ac.uk) bot-block automated requests with
+      403 but are reachable in a browser. No endpoints were fabricated; only the
+      five APIs confirmed live in the portal catalog are cataloged.
+    endpoints:
+      - url: https://data.cardiff.ac.uk/devportal/
+        status: 200
+        note: Public WSO2 API Manager developer portal (SPA).
+      - url: https://data.cardiff.ac.uk/api/am/devportal/v2/apis?limit=50
+        status: 200
+        note: Anonymous portal catalog; returned count=5 with full API metadata.
+      - url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+        status: 200
+        note: Courses API portal page.
+      - url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+        status: 200
+        note: Publications API portal page.
+      - url: https://api.data.cardiff.ac.uk/courses/v1/
+        status: 401
+        note: Gateway requires OAuth2 token; confirms APIs are gated, not open.
+      - url: https://data.cardiff.ac.uk/
+        status: 403
+        note: Open Data landing page bot-blocks curl; reachable in browser.
+      - url: https://www.cardiff.ac.uk/
+        status: 403
+        note: Official website bot-blocks automated requests; reachable in browser.
+      - url: https://orca.cardiff.ac.uk/
+        status: 403
+        note: ORCA EPrints institutional repository; bot-blocked, OAI-PMH not verifiable via automated probe.
+      - url: https://research-data.cardiff.ac.uk/
+        status: 202
+        note: Figshare-backed research data repository (challenge/redirect response).
