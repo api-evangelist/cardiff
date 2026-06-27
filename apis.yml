@@ -41,7 +41,7 @@ apis:
     properties:
       - type: Documentation
         url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-      - type: SignUp
+      - type: Signup
         url: https://data.cardiff.ac.uk/devportal/
       - type: OpenAPI
         url: openapi/cardiff-courses.yaml
@@ -57,7 +57,7 @@ apis:
     properties:
       - type: Documentation
         url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-      - type: SignUp
+      - type: Signup
         url: https://data.cardiff.ac.uk/devportal/
       - type: OpenAPI
         url: openapi/cardiff-modules.yaml
@@ -74,7 +74,7 @@ apis:
     properties:
       - type: Documentation
         url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-      - type: SignUp
+      - type: Signup
         url: https://data.cardiff.ac.uk/devportal/
       - type: OpenAPI
         url: openapi/cardiff-lookups.yaml
@@ -91,7 +91,7 @@ apis:
     properties:
       - type: Documentation
         url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-      - type: SignUp
+      - type: Signup
         url: https://data.cardiff.ac.uk/devportal/
       - type: OpenAPI
         url: openapi/cardiff-publications.yaml
