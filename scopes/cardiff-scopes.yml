@@ -1,0 +1,42 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cardiff-courses.yaml, openapi/cardiff-echo.yaml, openapi/cardiff-lookups.yaml,
+  openapi/cardiff-modules.yaml, openapi/cardiff-publications.yaml
+schemes:
+- name: default
+  source: openapi/cardiff-courses.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+- name: default
+  source: openapi/cardiff-echo.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+- name: default
+  source: openapi/cardiff-lookups.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+- name: default
+  source: openapi/cardiff-modules.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+- name: default
+  source: openapi/cardiff-publications.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+scopes:
+- scope: clearing
+  description: Allows users to see clearing data.
+  flows:
+  - implicit
+  sources:
+  - openapi/cardiff-courses.yaml
+- scope: lc_rollover
+  flows:
+  - implicit
+  sources:
+  - openapi/cardiff-modules.yaml

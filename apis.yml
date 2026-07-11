@@ -110,6 +110,8 @@ apis:
       - type: OpenAPI
         url: openapi/cardiff-echo.yaml
 common:
+  - type: OAuthScopes
+    url: scopes/cardiff-scopes.yml
   - type: Website
     url: https://www.cardiff.ac.uk/
   - type: DeveloperPortal
