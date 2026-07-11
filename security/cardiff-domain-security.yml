@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.cardiff.ac.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  2 00:49:21 2026 GMT
+  hsts: null
+- host: data.cardiff.ac.uk
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 15 02:14:17 2026 GMT
+  hsts: null
+- host: api.data.cardiff.ac.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  9 23:59:59 2026 GMT
+  hsts: false
+domains:
+- domain: cardiff.ac.uk
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

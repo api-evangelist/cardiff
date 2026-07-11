@@ -110,6 +110,10 @@ apis:
       - type: OpenAPI
         url: openapi/cardiff-echo.yaml
 common:
+  - type: DomainSecurity
+    url: security/cardiff-domain-security.yml
+  - type: Authentication
+    url: authentication/cardiff-authentication.yml
   - type: OAuthScopes
     url: scopes/cardiff-scopes.yml
   - type: Website
