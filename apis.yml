@@ -110,6 +110,8 @@ apis:
       - type: OpenAPI
         url: openapi/cardiff-echo.yaml
 common:
+  - type: AgenticAccess
+    url: agentic-access/cardiff-agentic-access.yml
   - type: DomainSecurity
     url: security/cardiff-domain-security.yml
   - type: Authentication
