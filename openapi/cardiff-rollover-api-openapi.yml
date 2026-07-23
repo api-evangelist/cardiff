@@ -1,0 +1,166 @@
+openapi: 3.0.3
+info:
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  version: v1
+  title: CoursesApi Assessments Rollover API
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Rollover
+paths:
+  /map:
+    get:
+      tags:
+      - Rollover
+      summary: Returns a list of the modules held in the Blackboard map
+      description: This endpoint returns all the modules held in the blackboard map table within SIMS.
+      parameters: []
+      responses:
+        '200':
+          description: List all modules from blackboard map
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      modules:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            prog_inc:
+                              type: string
+                            upr:
+                              type: string
+                            prog_exc:
+                              type: string
+                            year_of_study:
+                              type: string
+                            module_exc:
+                              type: string
+                            in_use:
+                              type: string
+                            occurrence:
+                              type: string
+                            dept:
+                              type: string
+                            module_inc:
+                              type: string
+                          required:
+                          - dept
+                          - in_use
+                          - module_exc
+                          - module_inc
+                          - occurrence
+                          - prog_exc
+                          - prog_inc
+                          - upr
+                          - year_of_study
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default:
+        - lc_rollover
+      x-auth-type: Application & Application User
+  /rollover/{year}:
+    get:
+      tags:
+      - Rollover
+      summary: Returns a list of rollover modules for the given year
+      description: This endpoint returns the list of rollover modules for a given academic year. The user passes in 18 and this is translated into 2018/9.
+      parameters:
+      - name: year
+        in: path
+        description: The required academic year eg 18
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List all rollover modules
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      modules:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            year:
+                              type: string
+                            name:
+                              type: string
+                            source:
+                              type: string
+                            schoolCode:
+                              type: string
+                          required:
+                          - code
+                          - name
+                          - schoolCode
+                          - source
+                          - year
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default:
+        - lc_rollover
+      x-auth-type: Application & Application User
+components:
+  schemas:
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        code:
+          type: integer
+          format: int32
+        errorMessage:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        count:
+          type: integer
+          format: int32
+        errorStatus:
+          type: boolean
+        contentType:
+          type: string
+      title: meta
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            clearing: Allows users to see clearing data.
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize

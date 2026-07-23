@@ -1,0 +1,133 @@
+openapi: 3.0.3
+info:
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  version: v1
+  title: CoursesApi Assessments API
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Assessments
+paths:
+  /{code}/assessments:
+    get:
+      tags:
+      - Assessments
+      summary: Returns the assessments for a module
+      description: This endpoint returns a list of assessments with the specified module code.
+      parameters:
+      - name: code
+        in: path
+        description: Specifies which module to return
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: Academic year, used to filter which assessments are returned. Defaults to current year
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list of assessments for the specified module
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+                  data:
+                    type: object
+                    properties:
+                      assessments:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Assessment'
+      security:
+      - default: []
+      x-auth-type: Application
+components:
+  schemas:
+    Assessment:
+      type: object
+      required:
+      - code
+      - dueDay
+      - duePeriod
+      - dueWeek
+      - examDuration
+      - name
+      - percentage
+      - qualifyingMark
+      - seq
+      - type
+      - typeCode
+      properties:
+        code:
+          type: string
+        dueDay:
+          type: string
+        duePeriod:
+          type: string
+        dueWeek:
+          type: string
+        examDuration:
+          type: string
+        name:
+          type: string
+        percentage:
+          type: string
+        qualifyingMark:
+          type: string
+        seq:
+          type: string
+        type:
+          type: string
+        typeCode:
+          type: string
+      title: assessment
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        code:
+          type: integer
+          format: int32
+        errorMessage:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        count:
+          type: integer
+          format: int32
+        errorStatus:
+          type: boolean
+        contentType:
+          type: string
+      title: meta
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            clearing: Allows users to see clearing data.
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize

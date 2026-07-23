@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  version: v1
+  title: CoursesApi Assessments Clearing Adjustments API
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Clearing Adjustments
+paths:
+  /clearing-adjustments:
+    get:
+      summary: Return adjustment data for clearing
+      description: Currently only in pre-production
+      parameters:
+      - name: year
+        in: query
+        description: Academic year, used to return the course structure for the specified year. Defaults to current year
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      security:
+      - default:
+        - clearing
+      x-auth-type: Application & Application User
+      tags:
+      - Clearing Adjustments
+components:
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            clearing: Allows users to see clearing data.
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize

@@ -1,9 +1,8 @@
 openapi: 3.0.3
 info:
-  description: The Publications API provides a simple interface for applications that want to retrieve lists of publications
-    or information relating to a specific publication within Cardiff University.
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
   version: v1
-  title: PublicationsApi
+  title: CoursesApi Assessments Publications API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -11,7 +10,11 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.data.cardiff.ac.uk/publications/v1
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Publications
 paths:
   /:
     get:
@@ -22,9 +25,7 @@ paths:
       parameters:
       - name: creator
         in: query
-        description: Enter a name or names to search for. Either the family name, or the family name followed by a comma and
-          the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. "van Damme,
-          J".
+        description: Enter a name or names to search for. Either the family name, or the family name followed by a comma and the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. "van Damme, J".
         required: false
         schema:
           type: string
@@ -42,9 +43,7 @@ paths:
           type: string
       - name: editor
         in: query
-        description: Enter a name or names to search for. Either the family name, or the family name followed by a comma and
-          the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. "van Damme,
-          J".
+        description: Enter a name or names to search for. Either the family name, or the family name followed by a comma and the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. "van Damme, J".
         required: false
         schema:
           type: string
@@ -473,7 +472,6 @@ components:
       type: oauth2
       flows:
         implicit:
-          scopes: {}
+          scopes:
+            clearing: Allows users to see clearing data.
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize
-security:
-- default: []

@@ -1,10 +1,8 @@
 openapi: 3.0.3
 info:
-  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information
-    relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school,
-    language, level and year.
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
   version: v1
-  title: CoursesApi
+  title: CoursesApi Assessments Courses API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -13,64 +11,11 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
 - url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Courses
 paths:
-  /groups:
-    get:
-      tags:
-      - Groups
-      summary: Returns a list of all course groups
-      description: This endpoint returns a list of all course groups within the University.
-      parameters:
-      - name: school
-        in: query
-        description: Returns course groups linked to the specified school code e.g. SOCSI (Social Sciences)
-        required: false
-        schema:
-          type: string
-      - name: subject
-        in: query
-        description: Returns course groups linked to the specified subject code e.g. A300 (Clinical Medicines)
-        required: false
-        schema:
-          type: string
-      - name: type
-        in: query
-        description: 'Filters course groups by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
-          (Note: This parameter is case sensitive.)'
-        required: false
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Returns a list of all course groups
-          content:
-            application/json:
-              schema:
-                required:
-                - data
-                - meta
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      groups:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            code:
-                              type: string
-                            name:
-                              type: string
-                            type:
-                              type: string
-                          required:
-                          - code
-                  meta:
-                    $ref: '#/components/schemas/Meta'
-      security:
-      - default: []
-      x-auth-type: Application & Application User
   /{code}:
     get:
       tags:
@@ -482,8 +427,7 @@ paths:
           type: string
       - name: type
         in: query
-        description: 'Filters courses by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
-          (Note: This parameter is case sensitive.)'
+        description: 'Filters courses by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)'
         required: false
         schema:
           type: string
@@ -636,24 +580,6 @@ paths:
       security:
       - default: []
       x-auth-type: Application
-  /clearing-adjustments:
-    get:
-      summary: Return adjustment data for clearing
-      description: Currently only in pre-production
-      parameters:
-      - name: year
-        in: query
-        description: Academic year, used to return the course structure for the specified year. Defaults to current year
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: ''
-      security:
-      - default:
-        - clearing
-      x-auth-type: Application & Application User
 components:
   schemas:
     Meta:
@@ -690,5 +616,3 @@ components:
           scopes:
             clearing: Allows users to see clearing data.
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize
-security:
-- default: []

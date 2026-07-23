@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  version: v1
+  title: CoursesApi Assessments Groups API
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Groups
+paths:
+  /groups:
+    get:
+      tags:
+      - Groups
+      summary: Returns a list of all course groups
+      description: This endpoint returns a list of all course groups within the University.
+      parameters:
+      - name: school
+        in: query
+        description: Returns course groups linked to the specified school code e.g. SOCSI (Social Sciences)
+        required: false
+        schema:
+          type: string
+      - name: subject
+        in: query
+        description: Returns course groups linked to the specified subject code e.g. A300 (Clinical Medicines)
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: 'Filters course groups by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list of all course groups
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      groups:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            name:
+                              type: string
+                            type:
+                              type: string
+                          required:
+                          - code
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+components:
+  schemas:
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        code:
+          type: integer
+          format: int32
+        errorMessage:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        count:
+          type: integer
+          format: int32
+        errorStatus:
+          type: boolean
+        contentType:
+          type: string
+      title: meta
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            clearing: Allows users to see clearing data.
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize

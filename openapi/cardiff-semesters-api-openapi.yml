@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  version: v1
+  title: CoursesApi Assessments Semesters API
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Semesters
+paths:
+  /semesters:
+    get:
+      tags:
+      - Semesters
+      summary: Retrieve a list of all semesters used within the Univesity.
+      parameters:
+      - name: limit
+        in: query
+        description: Number of semesters to return
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Offset of semesters to return
+        required: false
+        schema:
+          type: integer
+      - name: sort
+        in: query
+        description: Sorts the data by column name, use "-" for descending
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list all semesters
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      semesters:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            code:
+                              type: string
+                          required:
+                          - code
+                          - name
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+components:
+  schemas:
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        errorMessage:
+          type: object
+          properties:
+            message:
+              type: string
+            code:
+              type: string
+        count:
+          type: integer
+          format: int32
+        code:
+          type: integer
+          format: int32
+        contentType:
+          type: string
+        errorStatus:
+          type: boolean
+      title: meta
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            clearing: Allows users to see clearing data.
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize

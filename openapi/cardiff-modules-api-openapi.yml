@@ -1,10 +1,8 @@
 openapi: 3.0.3
 info:
-  description: The Module API provides a simple interface for applications that want to retrieve lists of modules or information
-    relating to a specific module taught in Cardiff University. Using the Modules API, clients can filter modules by school,
-    language, level and year.
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
   version: v1
-  title: ModulesApi
+  title: CoursesApi Assessments Modules API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -12,13 +10,16 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.data.cardiff.ac.uk/modules/v1
+- url: https://api.data.cardiff.ac.uk/courses/v1
+security:
+- default: []
+tags:
+- name: Modules
 paths:
   /{code}/occurrences/{occurrence}:
     get:
       tags:
       - Modules
-      - Occurrences
       summary: Returns specified module.
       description: This endpoint returns the module with the specified module code.
       parameters:
@@ -181,7 +182,6 @@ paths:
     get:
       tags:
       - Modules
-      - Assessments
       summary: Returns the assessments for a module
       description: This endpoint returns a list of assessments with the specified module code.
       parameters:
@@ -393,599 +393,6 @@ paths:
       security:
       - default: []
       x-auth-type: Application
-  /{code}/occurrences:
-    get:
-      tags:
-      - Occurrences
-      summary: Returns occurrences for a module.
-      description: This endpoint returns all occurrences for the module with the specified module code.
-      parameters:
-      - name: code
-        in: path
-        description: Specifies which module to return
-        required: true
-        schema:
-          type: string
-      - name: year
-        in: query
-        description: Academic year, used to filter which occurrences are returned. Defaults to current year
-        required: false
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Returns occurrences for the specified module
-          content:
-            application/json:
-              schema:
-                required:
-                - data
-                - meta
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      occurrences:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            moduleLeader:
-                              type: object
-                              properties:
-                                forename:
-                                  type: string
-                                surname:
-                                  type: string
-                                fullName:
-                                  type: string
-                                title:
-                                  type: string
-                                staffId:
-                                  type: string
-                                username:
-                                  type: string
-                                email:
-                                  type: string
-                            collaborators:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  forename:
-                                    type: string
-                                  surname:
-                                    type: string
-                                  fullName:
-                                    type: string
-                                  title:
-                                    type: string
-                                  staffId:
-                                    type: string
-                                  username:
-                                    type: string
-                                  email:
-                                    type: string
-                                  role:
-                                    type: string
-                            dateOflastClass:
-                              type: string
-                            dateOfFirstClass:
-                              type: string
-                            credits:
-                              type: string
-                            year:
-                              type: string
-                            name:
-                              type: string
-                            semester:
-                              type: object
-                              properties:
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            occurrence:
-                              type: string
-                            welshPerc:
-                              type: integer
-                          required:
-                          - collaborators
-                          - credits
-                          - dateOfFirstClass
-                          - dateOflastClass
-                          - moduleLeader
-                          - name
-                          - occurrence
-                          - semester
-                          - welshPerc
-                          - year
-                  meta:
-                    $ref: '#/components/schemas/Meta'
-      security:
-      - default: []
-      x-auth-type: Application
-  /map:
-    get:
-      tags:
-      - Rollover
-      summary: Returns a list of the modules held in the Blackboard map
-      description: This endpoint returns all the modules held in the blackboard map table within SIMS.
-      parameters: []
-      responses:
-        '200':
-          description: List all modules from blackboard map
-          content:
-            application/json:
-              schema:
-                required:
-                - data
-                - meta
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      modules:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            prog_inc:
-                              type: string
-                            upr:
-                              type: string
-                            prog_exc:
-                              type: string
-                            year_of_study:
-                              type: string
-                            module_exc:
-                              type: string
-                            in_use:
-                              type: string
-                            occurrence:
-                              type: string
-                            dept:
-                              type: string
-                            module_inc:
-                              type: string
-                          required:
-                          - dept
-                          - in_use
-                          - module_exc
-                          - module_inc
-                          - occurrence
-                          - prog_exc
-                          - prog_inc
-                          - upr
-                          - year_of_study
-                  meta:
-                    $ref: '#/components/schemas/Meta'
-      security:
-      - default:
-        - lc_rollover
-      x-auth-type: Application & Application User
-  /occurrences:
-    get:
-      tags:
-      - Occurrences
-      summary: List all module occurrences
-      description: This endpoint returns a list of module occurrences available with the University.
-      parameters:
-      - name: year
-        in: query
-        description: Academic year filter, defaults to current year. Defaults to current year
-        required: false
-        schema:
-          type: string
-      - name: school
-        in: query
-        description: Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)
-        required: false
-        schema:
-          type: string
-      - name: level
-        in: query
-        description: Returns modules linked to the specified level code e.g. L4 (Level 4 UG Certificate)
-        required: false
-        schema:
-          type: string
-      - name: staffId
-        in: query
-        description: Returns modules linked to the specified staff member
-        required: false
-        schema:
-          type: string
-      - name: subject
-        in: query
-        description: Returns modules linked to the specified subject code e.g. A300 (Clinical Medicine)
-        required: false
-        schema:
-          type: string
-      - name: language
-        in: query
-        description: Returns modules linked to the specified lenguage
-        required: false
-        schema:
-          type: string
-      - name: type
-        in: query
-        description: 'Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
-          (Note: This parameter is case sensitive.)'
-        required: false
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: Number of modules to return
-        required: false
-        schema:
-          type: integer
-          default: 500
-      - name: offset
-        in: query
-        description: Offset of modules to return
-        required: false
-        schema:
-          type: integer
-      - name: sort
-        in: query
-        description: Sorts the data by column name, use "-" for descending
-        required: false
-        schema:
-          type: string
-      responses:
-        '200':
-          description: List all module occurrences
-          content:
-            application/json:
-              schema:
-                required:
-                - data
-                - meta
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      modules:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            dateOflastClass:
-                              type: string
-                            code:
-                              type: string
-                            dateOfFirstClass:
-                              type: string
-                            level:
-                              type: object
-                              properties:
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            year:
-                              type: string
-                            subject:
-                              type: object
-                              properties:
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            language:
-                              type: string
-                            occurrence:
-                              type: string
-                            type:
-                              type: string
-                            noOfPeriods:
-                              type: integer
-                            moduleLeader:
-                              type: object
-                              properties:
-                                forename:
-                                  type: string
-                                surname:
-                                  type: string
-                                fullName:
-                                  type: string
-                                title:
-                                  type: string
-                                staffId:
-                                  type: string
-                                username:
-                                  type: string
-                                email:
-                                  type: string
-                            collaborators:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  forename:
-                                    type: string
-                                  surname:
-                                    type: string
-                                  fullName:
-                                    type: string
-                                  title:
-                                    type: string
-                                  staffId:
-                                    type: string
-                                  username:
-                                    type: string
-                                  email:
-                                    type: string
-                                  role:
-                                    type: string
-                            credits:
-                              type: integer
-                            school:
-                              type: object
-                              properties:
-                                parent:
-                                  type: string
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            name:
-                              type: string
-                            welshPerc:
-                              type: integer
-                          required:
-                          - code
-                          - collaborators
-                          - credits
-                          - language
-                          - moduleLeader
-                          - name
-                          - noOfPeriods
-                          - type
-                  meta:
-                    $ref: '#/components/schemas/Meta'
-      security:
-      - default: []
-      x-auth-type: Application
-  /learn-occurrences:
-    get:
-      tags:
-      - Occurrences
-      summary: List all module occurrences in LEARN
-      description: This endpoint returns a list of module occurrences in LEARN available with the University.
-      parameters:
-      - name: year
-        in: query
-        description: Academic year filter, defaults to current year. Defaults to current year
-        required: false
-        schema:
-          type: string
-      - name: school
-        in: query
-        description: Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)
-        required: false
-        schema:
-          type: string
-      - name: level
-        in: query
-        description: Returns modules linked to the specified level code e.g. L4 (Level 4 UG Certificate)
-        required: false
-        schema:
-          type: string
-      - name: staffId
-        in: query
-        description: Returns modules linked to the specified staff member
-        required: false
-        schema:
-          type: string
-      - name: subject
-        in: query
-        description: Returns modules linked to the specified subject code e.g. A300 (Clinical Medicine)
-        required: false
-        schema:
-          type: string
-      - name: language
-        in: query
-        description: Returns modules linked to the specified lenguage
-        required: false
-        schema:
-          type: string
-      - name: type
-        in: query
-        description: 'Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
-          (Note: This parameter is case sensitive.)'
-        required: false
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: Number of modules to return
-        required: false
-        schema:
-          type: integer
-          default: 500
-      - name: offset
-        in: query
-        description: Offset of modules to return
-        required: false
-        schema:
-          type: integer
-      - name: sort
-        in: query
-        description: Sorts the data by column name, use "-" for descending
-        required: false
-        schema:
-          type: string
-      responses:
-        '200':
-          description: List all module occurrences in LEARN
-          content:
-            application/json:
-              schema:
-                required:
-                - data
-                - meta
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      modules:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            dateOflastClass:
-                              type: string
-                            code:
-                              type: string
-                            dateOfFirstClass:
-                              type: string
-                            level:
-                              type: object
-                              properties:
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            year:
-                              type: string
-                            subject:
-                              type: object
-                              properties:
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            language:
-                              type: string
-                            occurrence:
-                              type: string
-                            type:
-                              type: string
-                            noOfPeriods:
-                              type: integer
-                            moduleLeader:
-                              type: object
-                              properties:
-                                forename:
-                                  type: string
-                                surname:
-                                  type: string
-                                fullName:
-                                  type: string
-                                title:
-                                  type: string
-                                staffId:
-                                  type: string
-                                username:
-                                  type: string
-                                email:
-                                  type: string
-                            collaborators:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  forename:
-                                    type: string
-                                  surname:
-                                    type: string
-                                  fullName:
-                                    type: string
-                                  title:
-                                    type: string
-                                  staffId:
-                                    type: string
-                                  username:
-                                    type: string
-                                  email:
-                                    type: string
-                                  role:
-                                    type: string
-                            credits:
-                              type: integer
-                            school:
-                              type: object
-                              properties:
-                                parent:
-                                  type: string
-                                code:
-                                  type: string
-                                name:
-                                  type: string
-                            name:
-                              type: string
-                            welshPerc:
-                              type: integer
-                          required:
-                          - code
-                          - collaborators
-                          - credits
-                          - language
-                          - moduleLeader
-                          - name
-                          - noOfPeriods
-                          - type
-                  meta:
-                    $ref: '#/components/schemas/Meta'
-      security:
-      - default: []
-      x-auth-type: Application
-  /rollover/{year}:
-    get:
-      tags:
-      - Rollover
-      summary: Returns a list of rollover modules for the given year
-      description: This endpoint returns the list of rollover modules for a given academic year. The user passes in 18 and
-        this is translated into 2018/9.
-      parameters:
-      - name: year
-        in: path
-        description: The required academic year eg 18
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: List all rollover modules
-          content:
-            application/json:
-              schema:
-                required:
-                - data
-                - meta
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      modules:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            code:
-                              type: string
-                            year:
-                              type: string
-                            name:
-                              type: string
-                            source:
-                              type: string
-                            schoolCode:
-                              type: string
-                          required:
-                          - code
-                          - name
-                          - schoolCode
-                          - source
-                          - year
-                  meta:
-                    $ref: '#/components/schemas/Meta'
-      security:
-      - default:
-        - lc_rollover
-      x-auth-type: Application & Application User
   /:
     get:
       tags:
@@ -1031,8 +438,7 @@ paths:
           type: string
       - name: type
         in: query
-        description: 'Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
-          (Note: This parameter is case sensitive.)'
+        description: 'Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)'
         required: false
         schema:
           type: string
@@ -1143,8 +549,7 @@ paths:
       tags:
       - Modules
       summary: Returns the module catalogues
-      description: This endpoint returns module catalogues data in json, html or doc format.  Searching by 1. School + Academic
-        year + Level or 2. Module code + Occurence
+      description: This endpoint returns module catalogues data in json, html or doc format.  Searching by 1. School + Academic year + Level or 2. Module code + Occurence
       parameters:
       - name: school
         in: query
@@ -1313,32 +718,6 @@ paths:
       x-auth-type: Application
 components:
   schemas:
-    Meta:
-      type: object
-      required:
-      - code
-      - contentType
-      - count
-      - errorStatus
-      properties:
-        code:
-          type: integer
-          format: int32
-        errorMessage:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
-        count:
-          type: integer
-          format: int32
-        errorStatus:
-          type: boolean
-        contentType:
-          type: string
-      title: meta
     Assessment:
       type: object
       required:
@@ -1377,13 +756,37 @@ components:
         typeCode:
           type: string
       title: assessment
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        code:
+          type: integer
+          format: int32
+        errorMessage:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        count:
+          type: integer
+          format: int32
+        errorStatus:
+          type: boolean
+        contentType:
+          type: string
+      title: meta
   securitySchemes:
     default:
       type: oauth2
       flows:
         implicit:
           scopes:
-            lc_rollover: ''
+            clearing: Allows users to see clearing data.
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize
-security:
-- default: []
