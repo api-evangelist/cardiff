@@ -11,9 +11,22 @@ description: >-
   access tokens, with external developer access granted on request by emailing
   integration@cardiff.ac.uk. The gateway is hosted at api.data.cardiff.ac.uk.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cardiff.png
 url: https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/apis.yml
 tags:
   - Education
@@ -28,87 +41,359 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: cardiff:courses
-    name: Courses
-    description: >-
-      The Courses API provides a simple interface for applications that want to
-      retrieve lists of courses or information relating to a specific course
-      within Cardiff University. Clients can filter courses by school, language,
-      level and year. OAuth2-secured; requires consumer keys and an access token.
-    humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-    baseURL: https://api.data.cardiff.ac.uk/courses/v1
-    tags: [ Courses, Catalog, Education ]
-    properties:
-      - type: Documentation
-        url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-      - type: Signup
-        url: https://data.cardiff.ac.uk/devportal/
-      - type: OpenAPI
-        url: openapi/cardiff-courses.yaml
-  - aid: cardiff:modules
-    name: Modules
-    description: >-
-      The Modules API exposes information about academic modules offered at
-      Cardiff University via the institutional developer portal. OAuth2-secured;
-      requires consumer keys and an access token.
-    humanURL: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-    baseURL: https://api.data.cardiff.ac.uk/modules/v1
-    tags: [ Modules, Catalog, Education ]
-    properties:
-      - type: Documentation
-        url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-      - type: Signup
-        url: https://data.cardiff.ac.uk/devportal/
-      - type: OpenAPI
-        url: openapi/cardiff-modules.yaml
-  - aid: cardiff:lookups
-    name: Lookups
-    description: >-
-      The Lookups API provides reference/lookup data used across Cardiff
-      University's institutional APIs (for example code lists used to filter
-      courses and modules). OAuth2-secured; requires consumer keys and an access
-      token.
-    humanURL: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-    baseURL: https://api.data.cardiff.ac.uk/lookups/v1
-    tags: [ Lookups, Reference Data ]
-    properties:
-      - type: Documentation
-        url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-      - type: Signup
-        url: https://data.cardiff.ac.uk/devportal/
-      - type: OpenAPI
-        url: openapi/cardiff-lookups.yaml
-  - aid: cardiff:publications
-    name: Publications
-    description: >-
-      The Publications API provides a simple interface for applications that
-      want to retrieve lists of publications or information relating to a
-      specific research publication within Cardiff University. OAuth2-secured;
-      requires consumer keys and an access token.
-    humanURL: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-    baseURL: https://api.data.cardiff.ac.uk/publications/v1
-    tags: [ Publications, Research, Education ]
-    properties:
-      - type: Documentation
-        url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-      - type: Signup
-        url: https://data.cardiff.ac.uk/devportal/
-      - type: OpenAPI
-        url: openapi/cardiff-publications.yaml
-  - aid: cardiff:echo
-    name: EchoTest
-    description: >-
-      An echo/test utility API published on Cardiff University's developer
-      portal, typically used to verify connectivity and credentials against the
-      gateway. OAuth2-secured.
-    humanURL: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-    baseURL: https://api.data.cardiff.ac.uk/echo/v1
-    tags: [ Testing, Utility ]
-    properties:
-      - type: Documentation
-        url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-      - type: OpenAPI
-        url: openapi/cardiff-echo.yaml
+- aid: cardiff:cardiff-assessments-api
+  name: Cardiff University Assessments API
+  description: The Assessments API from Cardiff University — 1 operation(s) for assessments.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Assessments
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-assessments-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-clearing-adjustments-api
+  name: Cardiff University Clearing Adjustments API
+  description: >-
+    The Clearing Adjustments API from Cardiff University — 1 operation(s) for clearing adjustments.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Clearing Adjustments
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-clearing-adjustments-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-courses-api
+  name: Cardiff University Courses API
+  description: The Courses API from Cardiff University — 4 operation(s) for courses.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Courses
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-courses-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-default-api
+  name: Cardiff University * API
+  description: The * API from Cardiff University — 1 operation(s) for *.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - '*'
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-default-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-groups-api
+  name: Cardiff University Groups API
+  description: The Groups API from Cardiff University — 1 operation(s) for groups.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-groups-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-levels-api
+  name: Cardiff University Levels API
+  description: The Levels API from Cardiff University — 1 operation(s) for levels.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Levels
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-levels-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-modules-api
+  name: Cardiff University Modules API
+  description: The Modules API from Cardiff University — 5 operation(s) for modules.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Modules
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-modules-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-occurrences-api
+  name: Cardiff University Occurrences API
+  description: The Occurrences API from Cardiff University — 4 operation(s) for occurrences.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Occurrences
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-occurrences-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-publications-api
+  name: Cardiff University Publications API
+  description: The Publications API from Cardiff University — 2 operation(s) for publications.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Publications
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-publications-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-qualifications-api
+  name: Cardiff University Qualifications API
+  description: The Qualifications API from Cardiff University — 1 operation(s) for qualifications.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Qualifications
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-qualifications-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-rollover-api
+  name: Cardiff University Rollover API
+  description: The Rollover API from Cardiff University — 2 operation(s) for rollover.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Rollover
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-rollover-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-schools-api
+  name: Cardiff University Schools API
+  description: The Schools API from Cardiff University — 1 operation(s) for schools.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Schools
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-schools-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-semesters-api
+  name: Cardiff University Semesters API
+  description: The Semesters API from Cardiff University — 1 operation(s) for semesters.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Semesters
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-semesters-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-subjects-api
+  name: Cardiff University Subjects API
+  description: The Subjects API from Cardiff University — 1 operation(s) for subjects.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Subjects
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-subjects-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-test-api
+  name: Cardiff University Test API
+  description: The Test API from Cardiff University — 1 operation(s) for test.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-test-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+- aid: cardiff:cardiff-years-api
+  name: Cardiff University Years API
+  description: The Years API from Cardiff University — 1 operation(s) for years.
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  tags:
+  - Years
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-years-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
 common:
   - type: AgenticAccess
     url: agentic-access/cardiff-agentic-access.yml
