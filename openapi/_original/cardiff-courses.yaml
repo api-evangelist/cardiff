@@ -1,0 +1,694 @@
+openapi: 3.0.3
+info:
+  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information
+    relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school,
+    language, level and year.
+  version: v1
+  title: CoursesApi
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/courses/v1
+paths:
+  /groups:
+    get:
+      tags:
+      - Groups
+      summary: Returns a list of all course groups
+      description: This endpoint returns a list of all course groups within the University.
+      parameters:
+      - name: school
+        in: query
+        description: Returns course groups linked to the specified school code e.g. SOCSI (Social Sciences)
+        required: false
+        schema:
+          type: string
+      - name: subject
+        in: query
+        description: Returns course groups linked to the specified subject code e.g. A300 (Clinical Medicines)
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: 'Filters course groups by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
+          (Note: This parameter is case sensitive.)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list of all course groups
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      groups:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            name:
+                              type: string
+                            type:
+                              type: string
+                          required:
+                          - code
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+  /{code}:
+    get:
+      tags:
+      - Courses
+      summary: Returns specified course.
+      description: This endpoint returns the course with the specified course code.
+      parameters:
+      - name: code
+        in: path
+        description: Specifies which course to return
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: Academic year, used to filter which course details are returned. Defaults to current year
+        required: false
+        schema:
+          type: string
+      - name: lang
+        in: query
+        description: Returns the course in specified language. Available options are english or welsh.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns specified course
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      course:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            accreditations:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  website:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  accURL:
+                                    type: string
+                            kisId:
+                              type: string
+                            subjects:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                            length:
+                              type: string
+                            staff:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  role:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  staffId:
+                                    type: string
+                            descriptions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  text:
+                                    type: string
+                                  title:
+                                    type: string
+                            applyPoints:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  year:
+                                    type: string
+                                  link:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  startDate:
+                                    type: string
+                            distanceLearn:
+                              type: string
+                            market:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
+                                name:
+                                  type: string
+                            qualification:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
+                                name:
+                                  type: string
+                            schools:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  flag:
+                                    type: string
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                            name:
+                              type: string
+                            lengthUnit:
+                              type: string
+                            externalReturnFormat:
+                              type: string
+                            nextIntake:
+                              type: string
+                            entryMethod:
+                              type: string
+                            attendance:
+                              type: string
+                            group:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
+                                name:
+                                  type: string
+                          required:
+                          - code
+                          - name
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+  /{code}/descriptions:
+    get:
+      tags:
+      - Courses
+      summary: Returns descriptions for the course.
+      description: This endpoint returns the descriptions for the specified course.
+      parameters:
+      - name: code
+        in: path
+        description: Specifies which course to return
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: Academic year, used to return the course structure for the specified year. Defaults to current year
+        required: false
+        schema:
+          type: string
+      - name: lang
+        in: query
+        description: Returns the course descriptions in the specified language. Available options are english or welsh.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns descriptions for the course
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      descriptions:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            posCode:
+                              type: string
+                            text:
+                              type: string
+                            title:
+                              type: string
+                          required:
+                          - posCode
+                          - title
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+  /{code}/structure:
+    get:
+      tags:
+      - Courses
+      summary: Returns the module structure for a course.
+      description: This endpoint returns the module structure for the specified course code.
+      parameters:
+      - name: code
+        in: path
+        description: Specifies which course to return
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: Academic year, used to return the course structure for the specified year. Defaults to current year
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns the module structure for a course
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      blocks:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            blockCode:
+                              type: string
+                            sandwichYear:
+                              type: string
+                            length:
+                              type: string
+                            parts:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  coreModules:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        reqtCode:
+                                          type: string
+                                        code:
+                                          type: string
+                                        level:
+                                          type: string
+                                        credits:
+                                          type: string
+                                        name:
+                                          type: string
+                                        partCode:
+                                          type: string
+                                        occurrence:
+                                          type: string
+                                  endDate:
+                                    type: string
+                                  freeStanding:
+                                    type: string
+                                  yosCode:
+                                    type: string
+                                  proportionTeachInWelsh:
+                                    type: string
+                                  optionalModules:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        blockCode:
+                                          type: string
+                                        reqtCode:
+                                          type: string
+                                        code:
+                                          type: string
+                                        minCredits:
+                                          type: string
+                                        name:
+                                          type: string
+                                        modules:
+                                          type: array
+                                          items:
+                                            type: object
+                                            properties:
+                                              code:
+                                                type: string
+                                              level:
+                                                type: string
+                                              credits:
+                                                type: string
+                                              name:
+                                                type: string
+                                        maxCredits:
+                                          type: string
+                                  startDate:
+                                    type: string
+                            programmeYear:
+                              type: string
+                            tutionFees:
+                              type: object
+                              properties:
+                                international:
+                                  type: object
+                                  properties:
+                                    notes:
+                                      type: string
+                                    fee:
+                                      type: integer
+                                    deposit:
+                                      type: integer
+                                home:
+                                  type: object
+                                  properties:
+                                    notes:
+                                      type: string
+                                    fee:
+                                      type: integer
+                                    deposit:
+                                      type: integer
+                            type:
+                              type: string
+                          required:
+                          - programmeYear
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+  /:
+    get:
+      tags:
+      - Courses
+      summary: List all courses
+      description: The root endpoint returns a list of courses available within the University.
+      parameters:
+      - name: moa
+        in: query
+        description: Mode of Attendance filter e.g. Full-time, Part-time
+        required: false
+        schema:
+          type: string
+      - name: school
+        in: query
+        description: Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)
+        required: false
+        schema:
+          type: string
+      - name: group
+        in: query
+        description: Returns courses linked to the specified course group code e.g. Z001 (Accounting)
+        required: false
+        schema:
+          type: string
+      - name: qual
+        in: query
+        description: Returns courses linked to the specified qualification code e.g. BLA (Bachelor of Laws)
+        required: false
+        schema:
+          type: string
+      - name: distance
+        in: query
+        description: Can be used to return distance learning courses. Can be either Y or N.
+        required: false
+        schema:
+          type: string
+      - name: lang
+        in: query
+        description: Returns the courses in specified language. Available options are english or welsh.
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: 'Filters courses by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate).
+          (Note: This parameter is case sensitive.)'
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Number of courses to return
+        required: false
+        schema:
+          type: integer
+          default: 50
+      - name: offset
+        in: query
+        description: Offset of courses to return
+        required: false
+        schema:
+          type: integer
+      - name: sort
+        in: query
+        description: Sorts the data by column name, use "-" for descending
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List all courses
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      courses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            accreditations:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  website:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  accURL:
+                                    type: string
+                            kisId:
+                              type: string
+                            subjects:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                            length:
+                              type: string
+                            staff:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  role:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  staffId:
+                                    type: string
+                            applyPoints:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  year:
+                                    type: string
+                                  link:
+                                    type: string
+                                  posCode:
+                                    type: string
+                                  startDate:
+                                    type: string
+                            distanceLearn:
+                              type: string
+                            market:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
+                                name:
+                                  type: string
+                            qualification:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
+                                name:
+                                  type: string
+                            schools:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  flag:
+                                    type: string
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
+                                  posCode:
+                                    type: string
+                            name:
+                              type: string
+                            lengthUnit:
+                              type: string
+                            externalReturnFormat:
+                              type: string
+                            nextIntake:
+                              type: string
+                            entryMethod:
+                              type: string
+                            attendance:
+                              type: string
+                            group:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
+                                name:
+                                  type: string
+                          required:
+                          - code
+                          - name
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application
+  /clearing-adjustments:
+    get:
+      summary: Return adjustment data for clearing
+      description: Currently only in pre-production
+      parameters:
+      - name: year
+        in: query
+        description: Academic year, used to return the course structure for the specified year. Defaults to current year
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      security:
+      - default:
+        - clearing
+      x-auth-type: Application & Application User
+components:
+  schemas:
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        code:
+          type: integer
+          format: int32
+        errorMessage:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        count:
+          type: integer
+          format: int32
+        errorStatus:
+          type: boolean
+        contentType:
+          type: string
+      title: meta
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            clearing: Allows users to see clearing data.
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+security:
+- default: []

@@ -1,0 +1,479 @@
+openapi: 3.0.3
+info:
+  description: The Publications API provides a simple interface for applications that want to retrieve lists of publications
+    or information relating to a specific publication within Cardiff University.
+  version: v1
+  title: PublicationsApi
+  termsOfService: http://www.cardiff.ac.uk/terms/
+  contact:
+    name: integration@cardiff.ac.uk
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.data.cardiff.ac.uk/publications/v1
+paths:
+  /:
+    get:
+      tags:
+      - Publications
+      summary: List all publications
+      description: The root endpoint returns a list of publications available within the University.
+      parameters:
+      - name: creator
+        in: query
+        description: Enter a name or names to search for. Either the family name, or the family name followed by a comma and
+          the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. "van Damme,
+          J".
+        required: false
+        schema:
+          type: string
+      - name: school
+        in: query
+        description: Enter a school code or codes to search for seperated with a semi-colon. e.g. SOCSI CPLAN
+        required: false
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Enter a format type or types to search for seperated with a semi-colon. e.g. text/html application/pdf
+        required: false
+        schema:
+          type: string
+      - name: editor
+        in: query
+        description: Enter a name or names to search for. Either the family name, or the family name followed by a comma and
+          the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. "van Damme,
+          J".
+        required: false
+        schema:
+          type: string
+      - name: id
+        in: query
+        description: Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234
+        required: false
+        schema:
+          type: string
+      - name: subject
+        in: query
+        description: Enter an subject code or codes to search for seperated with a semi-colon. e.g. AC AI
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: Enter a type or types to search for seperated with a semi-colon. e.g. article book
+        required: false
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: yyyy-mm-dd format, can be reduced to yyyy or yyyy-mm
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List all publications
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      publications:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            date:
+                              type: string
+                            date_type:
+                              type: string
+                            harvardReference:
+                              type: array
+                              items:
+                                type: string
+                            coversheet:
+                              type: string
+                            full_text_status:
+                              type: string
+                            type:
+                              type: string
+                            title:
+                              type: string
+                            rioxx2_free_to_read:
+                              type: object
+                              properties:
+                                free_to_read:
+                                  type: string
+                            rioxx2_format:
+                              type: string
+                            eprintid:
+                              type: string
+                            publication:
+                              type: string
+                            sword_depositor:
+                              type: string
+                            rioxx2_publication_date:
+                              type: string
+                            rioxx2_type:
+                              type: string
+                            id_number:
+                              type: string
+                            eprint_status:
+                              type: string
+                            rioxx2_publisher:
+                              type: string
+                            rioxx2_author:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  author:
+                                    type: string
+                            rioxx2_publication_datec:
+                              type: string
+                            uri:
+                              type: string
+                            volume:
+                              type: string
+                            rioxx2_license_ref:
+                              type: object
+                              properties:
+                                license_ref:
+                                  type: string
+                                start_date:
+                                  type: string
+                            rioxx2_identifier:
+                              type: string
+                            rioxx2_version:
+                              type: string
+                            rioxx2_title:
+                              type: string
+                            publisher:
+                              type: string
+                            official_url:
+                              type: string
+                            rioxx2_source:
+                              type: string
+                            rioxx2_description:
+                              type: string
+                            pagerange:
+                              type: string
+                            rioxx2_version_of_record:
+                              type: string
+                          required:
+                          - eprintid
+                          - title
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+  /{eprintid}:
+    get:
+      tags:
+      - Publications
+      summary: Returns specified publication.
+      description: This endpoint returns the publication with the specified eprint id.
+      parameters:
+      - name: eprintid
+        in: path
+        description: Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns specified module
+          content:
+            application/json:
+              schema:
+                required:
+                - data
+                - meta
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      publications:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            date:
+                              type: string
+                            date_type:
+                              type: string
+                            documents:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  rev_number:
+                                    type: integer
+                                  docid:
+                                    type: integer
+                                  format:
+                                    type: string
+                                  main:
+                                    type: string
+                                  language:
+                                    type: string
+                                  uri:
+                                    type: string
+                                  content:
+                                    type: string
+                                  license:
+                                    type: string
+                                  security:
+                                    type: string
+                                  pos:
+                                    type: integer
+                                  mime_type:
+                                    type: string
+                                  eprintid:
+                                    type: integer
+                                  files:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        filename:
+                                          type: string
+                                        mime_type:
+                                          type: string
+                                        datasetid:
+                                          type: string
+                                        filesize:
+                                          type: string
+                                        mtime:
+                                          type: string
+                                        uri:
+                                          type: string
+                                        hash:
+                                          type: string
+                                        objectid:
+                                          type: integer
+                                        hash_type:
+                                          type: string
+                                        fileid:
+                                          type: integer
+                                  placement:
+                                    type: integer
+                            harvardReference:
+                              type: array
+                              items:
+                                type: string
+                            related_url:
+                              type: string
+                            full_text_status:
+                              type: string
+                            type:
+                              type: string
+                            dir:
+                              type: string
+                            userid:
+                              type: integer
+                            divisions:
+                              type: array
+                              items:
+                                type: string
+                            datestamp:
+                              type: string
+                            ispublished:
+                              type: string
+                            rioxx2_format:
+                              type: string
+                            eprintid:
+                              type: string
+                            publication:
+                              type: string
+                            wos:
+                              type: object
+                              properties:
+                                cluster:
+                                  type: string
+                                datestamp:
+                                  type: string
+                                impact:
+                                  type: string
+                            cardiff_browse_id:
+                              type: string
+                            lastmod:
+                              type: string
+                            id_number:
+                              type: string
+                            rev_number:
+                              type: integer
+                            eprint_status:
+                              type: string
+                            rioxx2_author:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  author:
+                                    type: string
+                            refereed:
+                              type: string
+                            volume:
+                              type: string
+                            rioxx2_version:
+                              type: string
+                            official_url:
+                              type: string
+                            publisher:
+                              type: string
+                            rioxx2_source:
+                              type: string
+                            rioxx2_description:
+                              type: string
+                            pagerange:
+                              type: string
+                            status_changed:
+                              type: string
+                            rioxx2_version_of_record:
+                              type: string
+                            creators:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: object
+                                    properties:
+                                      lineage:
+                                        type: string
+                                      given:
+                                        type: string
+                                      honourific:
+                                        type: string
+                                      family:
+                                        type: string
+                                  id:
+                                    type: string
+                                  uniqueid:
+                                    type: string
+                            coversheet:
+                              type: string
+                            coauthors:
+                              type: integer
+                            title:
+                              type: string
+                            rioxx2_free_to_read:
+                              type: object
+                              properties:
+                                free_to_read:
+                                  type: string
+                            security:
+                              type: string
+                            sword_depositor:
+                              type: string
+                            rioxx2_publication_date:
+                              type: string
+                            editors:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: object
+                                    properties:
+                                      lineage:
+                                        type: string
+                                      given:
+                                        type: string
+                                      honourific:
+                                        type: string
+                                      family:
+                                        type: string
+                            selected_by:
+                              type: array
+                              items:
+                                type: string
+                            rioxx2_type:
+                              type: string
+                            subjects:
+                              type: array
+                              items:
+                                type: string
+                            rioxx2_publisher:
+                              type: string
+                            scopus:
+                              type: object
+                              properties:
+                                cluster:
+                                  type: string
+                                datestamp:
+                                  type: string
+                                impact:
+                                  type: string
+                            rioxx2_publication_datec:
+                              type: string
+                            abstract:
+                              type: string
+                            uri:
+                              type: string
+                            rioxx2_license_ref:
+                              type: object
+                              properties:
+                                license_ref:
+                                  type: string
+                                start_date:
+                                  type: string
+                            rioxx2_identifier:
+                              type: string
+                            rioxx2_title:
+                              type: string
+                            metadata_visibility:
+                              type: string
+                          required:
+                          - type
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      security:
+      - default: []
+      x-auth-type: Application & Application User
+components:
+  schemas:
+    Meta:
+      type: object
+      required:
+      - code
+      - contentType
+      - count
+      - errorStatus
+      properties:
+        code:
+          type: integer
+          format: int32
+        errorMessage:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        count:
+          type: integer
+          format: int32
+        errorStatus:
+          type: boolean
+        contentType:
+          type: string
+      title: meta
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          scopes: {}
+          authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+security:
+- default: []
