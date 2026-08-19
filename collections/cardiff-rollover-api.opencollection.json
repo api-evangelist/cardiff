@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Rollover API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rollover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of the modules held in the Blackboard map",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/map",
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns all the modules held in the blackboard map table within SIMS."
+        },
+        {
+          "info": {
+            "name": "Returns a list of rollover modules for the given year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/rollover/:year",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "The required academic year eg 18"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns the list of rollover modules for a given academic year. The user passes in 18 and this is translated into 2018/9."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

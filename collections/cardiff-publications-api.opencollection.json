@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Publications API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Publications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/",
+            "params": [
+              {
+                "name": "creator",
+                "value": "",
+                "type": "query",
+                "description": "Enter a name or names to search for. Either the family name, or the family name followed by a comma and the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. \"van Damme, J\"."
+              },
+              {
+                "name": "school",
+                "value": "",
+                "type": "query",
+                "description": "Enter a school code or codes to search for seperated with a semi-colon. e.g. SOCSI CPLAN"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Enter a format type or types to search for seperated with a semi-colon. e.g. text/html application/pdf"
+              },
+              {
+                "name": "editor",
+                "value": "",
+                "type": "query",
+                "description": "Enter a name or names to search for. Either the family name, or the family name followed by a comma and the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. \"van Damme, J\"."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234"
+              },
+              {
+                "name": "subject",
+                "value": "",
+                "type": "query",
+                "description": "Enter an subject code or codes to search for seperated with a semi-colon. e.g. AC AI"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Enter a type or types to search for seperated with a semi-colon. e.g. article book"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-mm-dd format, can be reduced to yyyy or yyyy-mm"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "The root endpoint returns a list of publications available within the University."
+        },
+        {
+          "info": {
+            "name": "Returns specified publication.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/:eprintid",
+            "params": [
+              {
+                "name": "eprintid",
+                "value": "",
+                "type": "path",
+                "description": "Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns the publication with the specified eprint id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "32a268e8-3c3a-4c6b-aa3f-872c15d8c8c9",
+      "name": "Rollover",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "995d339f-f62d-49a7-bdcb-49f63c5f1e8d",
+          "name": "Returns a list of the modules held in the Blackboard map",
+          "request": {
+            "name": "Returns a list of the modules held in the Blackboard map",
+            "description": {
+              "content": "This endpoint returns all the modules held in the blackboard map table within SIMS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "map"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1bfa6fd9-9132-4b8f-a803-dc04748210de",
+              "name": "List all modules from blackboard map",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "map"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"modules\": [\n      {\n        \"dept\": \"string\",\n        \"in_use\": \"string\",\n        \"module_exc\": \"string\",\n        \"module_inc\": \"string\",\n        \"occurrence\": \"string\",\n        \"prog_exc\": \"string\",\n        \"prog_inc\": \"string\",\n        \"upr\": \"string\",\n        \"year_of_study\": \"string\"\n      },\n      {\n        \"dept\": \"string\",\n        \"in_use\": \"string\",\n        \"module_exc\": \"string\",\n        \"module_inc\": \"string\",\n        \"occurrence\": \"string\",\n        \"prog_exc\": \"string\",\n        \"prog_inc\": \"string\",\n        \"upr\": \"string\",\n        \"year_of_study\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 9845,\n    \"contentType\": \"string\",\n    \"count\": 4157,\n    \"errorStatus\": false,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08041182-3d20-4454-891e-2d5500da40cd",
+          "name": "Returns a list of rollover modules for the given year",
+          "request": {
+            "name": "Returns a list of rollover modules for the given year",
+            "description": {
+              "content": "This endpoint returns the list of rollover modules for a given academic year. The user passes in 18 and this is translated into 2018/9.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rollover",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "year",
+                  "description": "(Required) The required academic year eg 18"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e872af3-330c-4e02-91d4-1941c42b67c5",
+              "name": "List all rollover modules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rollover",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "year",
+                      "description": "(Required) The required academic year eg 18"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"modules\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"schoolCode\": \"string\",\n        \"source\": \"string\",\n        \"year\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"schoolCode\": \"string\",\n        \"source\": \"string\",\n        \"year\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 6989,\n    \"contentType\": \"string\",\n    \"count\": 5393,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4057949b-23c0-438b-b55e-9d9c9fcd82c5",
+    "name": "CoursesApi Assessments Rollover API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

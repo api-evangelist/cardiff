@@ -1,0 +1,192 @@
+{
+  "item": [
+    {
+      "id": "53e36ce3-6fd3-449c-9d07-0d8bf4cf4015",
+      "name": "Schools",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee8fae03-5742-467f-8f4f-92b6837654e5",
+          "name": "Retrieve a list of all schools within the Univesity.",
+          "request": {
+            "name": "Retrieve a list of all schools within the Univesity.",
+            "description": {},
+            "url": {
+              "path": [
+                "schools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "option",
+                  "value": "<string>",
+                  "description": "Options for selecting schools. \"parent\" for parent schools list"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Selecting schools by School code"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of schools to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of schools to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f0513355-e7ab-4d9e-a265-7be91546d220",
+              "name": "Returns a list all schools",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "option",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"semesters\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"parent\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"parent\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 1770,\n    \"contentType\": \"string\",\n    \"count\": 219,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"message\": \"string\",\n      \"code\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0b23abd1-dd91-4bec-a801-118b185a70da",
+    "name": "CoursesApi Assessments Schools API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

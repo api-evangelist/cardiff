@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "6a40c234-708f-4c9c-ae06-c98252e68e47",
+      "name": "Semesters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e3843bd-f4bf-4be9-945a-90bec8b7fdef",
+          "name": "Retrieve a list of all semesters used within the Univesity.",
+          "request": {
+            "name": "Retrieve a list of all semesters used within the Univesity.",
+            "description": {},
+            "url": {
+              "path": [
+                "semesters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of semesters to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of semesters to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fcfd4746-00b2-4e42-bb53-4842cb3ff006",
+              "name": "Returns a list all semesters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "semesters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"semesters\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 7035,\n    \"contentType\": \"string\",\n    \"count\": 2780,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"message\": \"string\",\n      \"code\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f925765f-8e9d-4f2e-9d5b-259ea706bea6",
+    "name": "CoursesApi Assessments Semesters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

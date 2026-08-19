@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "edf8bbb9-adc1-4887-99f1-ee4e66381659",
+      "name": "Clearing Adjustments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72274c2e-d050-4451-8397-c23589df01b1",
+          "name": "Return adjustment data for clearing",
+          "request": {
+            "name": "Return adjustment data for clearing",
+            "description": {
+              "content": "Currently only in pre-production",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "clearing-adjustments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "(Required) Academic year, used to return the course structure for the specified year. Defaults to current year"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c82aa495-c1e6-4666-9c27-b935206a296f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clearing-adjustments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "054ac963-91ee-4647-89c7-a296c7c2e27c",
+    "name": "CoursesApi Assessments Clearing Adjustments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

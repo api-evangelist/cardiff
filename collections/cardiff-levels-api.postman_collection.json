@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "d7bb7301-0605-42cb-a5ee-6dc706c49b26",
+      "name": "Levels",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c71faf5-fa22-4d01-b29b-8c0d619e9102",
+          "name": "Retrieve a list of all available levels used within the Univesity.",
+          "request": {
+            "name": "Retrieve a list of all available levels used within the Univesity.",
+            "description": {},
+            "url": {
+              "path": [
+                "levels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of levels to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of levels to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bc11b15e-d0ba-4d64-a670-60aa1165b958",
+              "name": "Returns a list all Levels",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "levels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"levels\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 2049,\n    \"contentType\": \"string\",\n    \"count\": 5790,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"message\": \"string\",\n      \"code\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "230f17fa-b8ca-4fe9-b5d4-ce97e9cde101",
+    "name": "CoursesApi Assessments Levels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

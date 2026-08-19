@@ -1,0 +1,335 @@
+{
+  "item": [
+    {
+      "id": "a6a88161-d538-4913-8775-4ea9ec6adbec",
+      "name": "Publications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "751b1488-f4ff-43c2-9ab8-57944066e1d7",
+          "name": "List all publications",
+          "request": {
+            "name": "List all publications",
+            "description": {
+              "content": "The root endpoint returns a list of publications available within the University.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "creator",
+                  "value": "<string>",
+                  "description": "Enter a name or names to search for. Either the family name, or the family name followed by a comma and the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. \"van Damme, J\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "school",
+                  "value": "<string>",
+                  "description": "Enter a school code or codes to search for seperated with a semi-colon. e.g. SOCSI CPLAN"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Enter a format type or types to search for seperated with a semi-colon. e.g. text/html application/pdf"
+                },
+                {
+                  "disabled": false,
+                  "key": "editor",
+                  "value": "<string>",
+                  "description": "Enter a name or names to search for. Either the family name, or the family name followed by a comma and the first name or initial. Names with spaces may be indicated by surrounding them with double quotes, eg. \"van Damme, J\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "<string>",
+                  "description": "Enter an subject code or codes to search for seperated with a semi-colon. e.g. AC AI"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Enter a type or types to search for seperated with a semi-colon. e.g. article book"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "yyyy-mm-dd format, can be reduced to yyyy or yyyy-mm"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9bfd666-a4b3-419a-9534-783cafbb55d1",
+              "name": "List all publications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "creator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "school",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "editor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"publications\": [\n      {\n        \"eprintid\": \"string\",\n        \"title\": \"string\",\n        \"date\": \"string\",\n        \"date_type\": \"string\",\n        \"harvardReference\": [\n          \"string\",\n          \"string\"\n        ],\n        \"coversheet\": \"string\",\n        \"full_text_status\": \"string\",\n        \"type\": \"string\",\n        \"rioxx2_free_to_read\": {\n          \"free_to_read\": \"string\"\n        },\n        \"rioxx2_format\": \"string\",\n        \"publication\": \"string\",\n        \"sword_depositor\": \"string\",\n        \"rioxx2_publication_date\": \"string\",\n        \"rioxx2_type\": \"string\",\n        \"id_number\": \"string\",\n        \"eprint_status\": \"string\",\n        \"rioxx2_publisher\": \"string\",\n        \"rioxx2_author\": [\n          {\n            \"author\": \"string\"\n          },\n          {\n            \"author\": \"string\"\n          }\n        ],\n        \"rioxx2_publication_datec\": \"string\",\n        \"uri\": \"string\",\n        \"volume\": \"string\",\n        \"rioxx2_license_ref\": {\n          \"license_ref\": \"string\",\n          \"start_date\": \"string\"\n        },\n        \"rioxx2_identifier\": \"string\",\n        \"rioxx2_version\": \"string\",\n        \"rioxx2_title\": \"string\",\n        \"publisher\": \"string\",\n        \"official_url\": \"string\",\n        \"rioxx2_source\": \"string\",\n        \"rioxx2_description\": \"string\",\n        \"pagerange\": \"string\",\n        \"rioxx2_version_of_record\": \"string\"\n      },\n      {\n        \"eprintid\": \"string\",\n        \"title\": \"string\",\n        \"date\": \"string\",\n        \"date_type\": \"string\",\n        \"harvardReference\": [\n          \"string\",\n          \"string\"\n        ],\n        \"coversheet\": \"string\",\n        \"full_text_status\": \"string\",\n        \"type\": \"string\",\n        \"rioxx2_free_to_read\": {\n          \"free_to_read\": \"string\"\n        },\n        \"rioxx2_format\": \"string\",\n        \"publication\": \"string\",\n        \"sword_depositor\": \"string\",\n        \"rioxx2_publication_date\": \"string\",\n        \"rioxx2_type\": \"string\",\n        \"id_number\": \"string\",\n        \"eprint_status\": \"string\",\n        \"rioxx2_publisher\": \"string\",\n        \"rioxx2_author\": [\n          {\n            \"author\": \"string\"\n          },\n          {\n            \"author\": \"string\"\n          }\n        ],\n        \"rioxx2_publication_datec\": \"string\",\n        \"uri\": \"string\",\n        \"volume\": \"string\",\n        \"rioxx2_license_ref\": {\n          \"license_ref\": \"string\",\n          \"start_date\": \"string\"\n        },\n        \"rioxx2_identifier\": \"string\",\n        \"rioxx2_version\": \"string\",\n        \"rioxx2_title\": \"string\",\n        \"publisher\": \"string\",\n        \"official_url\": \"string\",\n        \"rioxx2_source\": \"string\",\n        \"rioxx2_description\": \"string\",\n        \"pagerange\": \"string\",\n        \"rioxx2_version_of_record\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 3893,\n    \"contentType\": \"string\",\n    \"count\": 8352,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd4d4b28-b73b-463d-864d-e81cfa1257d2",
+          "name": "Returns specified publication.",
+          "request": {
+            "name": "Returns specified publication.",
+            "description": {
+              "content": "This endpoint returns the publication with the specified eprint id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":eprintid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eprintid",
+                  "description": "(Required) Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9c2b683e-8694-412c-a665-84667f601c86",
+              "name": "Returns specified module",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":eprintid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eprintid",
+                      "description": "(Required) Enter an eprint id or ids to search for seperated with a semi-colon. e.g. 123 234"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"publications\": [\n      {\n        \"type\": \"string\",\n        \"date\": \"string\",\n        \"date_type\": \"string\",\n        \"documents\": [\n          {\n            \"rev_number\": 147,\n            \"docid\": 2434,\n            \"format\": \"string\",\n            \"main\": \"string\",\n            \"language\": \"string\",\n            \"uri\": \"string\",\n            \"content\": \"string\",\n            \"license\": \"string\",\n            \"security\": \"string\",\n            \"pos\": 3341,\n            \"mime_type\": \"string\",\n            \"eprintid\": 4386,\n            \"files\": [\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 62,\n                \"hash_type\": \"string\",\n                \"fileid\": 931\n              },\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 9106,\n                \"hash_type\": \"string\",\n                \"fileid\": 1148\n              }\n            ],\n            \"placement\": 5486\n          },\n          {\n            \"rev_number\": 4679,\n            \"docid\": 160,\n            \"format\": \"string\",\n            \"main\": \"string\",\n            \"language\": \"string\",\n            \"uri\": \"string\",\n            \"content\": \"string\",\n            \"license\": \"string\",\n            \"security\": \"string\",\n            \"pos\": 7013,\n            \"mime_type\": \"string\",\n            \"eprintid\": 5092,\n            \"files\": [\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 9077,\n                \"hash_type\": \"string\",\n                \"fileid\": 2219\n              },\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 7562,\n                \"hash_type\": \"string\",\n                \"fileid\": 2091\n              }\n            ],\n            \"placement\": 7173\n          }\n        ],\n        \"harvardReference\": [\n          \"string\",\n          \"string\"\n        ],\n        \"related_url\": \"string\",\n        \"full_text_status\": \"string\",\n        \"dir\": \"string\",\n        \"userid\": 25,\n        \"divisions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"datestamp\": \"string\",\n        \"ispublished\": \"string\",\n        \"rioxx2_format\": \"string\",\n        \"eprintid\": \"string\",\n        \"publication\": \"string\",\n        \"wos\": {\n          \"cluster\": \"string\",\n          \"datestamp\": \"string\",\n          \"impact\": \"string\"\n        },\n        \"cardiff_browse_id\": \"string\",\n        \"lastmod\": \"string\",\n        \"id_number\": \"string\",\n        \"rev_number\": 8908,\n        \"eprint_status\": \"string\",\n        \"rioxx2_author\": [\n          {\n            \"author\": \"string\"\n          },\n          {\n            \"author\": \"string\"\n          }\n        ],\n        \"refereed\": \"string\",\n        \"volume\": \"string\",\n        \"rioxx2_version\": \"string\",\n        \"official_url\": \"string\",\n        \"publisher\": \"string\",\n        \"rioxx2_source\": \"string\",\n        \"rioxx2_description\": \"string\",\n        \"pagerange\": \"string\",\n        \"status_changed\": \"string\",\n        \"rioxx2_version_of_record\": \"string\",\n        \"creators\": [\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            },\n            \"id\": \"string\",\n            \"uniqueid\": \"string\"\n          },\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            },\n            \"id\": \"string\",\n            \"uniqueid\": \"string\"\n          }\n        ],\n        \"coversheet\": \"string\",\n        \"coauthors\": 3427,\n        \"title\": \"string\",\n        \"rioxx2_free_to_read\": {\n          \"free_to_read\": \"string\"\n        },\n        \"security\": \"string\",\n        \"sword_depositor\": \"string\",\n        \"rioxx2_publication_date\": \"string\",\n        \"editors\": [\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            }\n          },\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            }\n          }\n        ],\n        \"selected_by\": [\n          \"string\",\n          \"string\"\n        ],\n        \"rioxx2_type\": \"string\",\n        \"subjects\": [\n          \"string\",\n          \"string\"\n        ],\n        \"rioxx2_publisher\": \"string\",\n        \"scopus\": {\n          \"cluster\": \"string\",\n          \"datestamp\": \"string\",\n          \"impact\": \"string\"\n        },\n        \"rioxx2_publication_datec\": \"string\",\n        \"abstract\": \"string\",\n        \"uri\": \"string\",\n        \"rioxx2_license_ref\": {\n          \"license_ref\": \"string\",\n          \"start_date\": \"string\"\n        },\n        \"rioxx2_identifier\": \"string\",\n        \"rioxx2_title\": \"string\",\n        \"metadata_visibility\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"date\": \"string\",\n        \"date_type\": \"string\",\n        \"documents\": [\n          {\n            \"rev_number\": 4910,\n            \"docid\": 42,\n            \"format\": \"string\",\n            \"main\": \"string\",\n            \"language\": \"string\",\n            \"uri\": \"string\",\n            \"content\": \"string\",\n            \"license\": \"string\",\n            \"security\": \"string\",\n            \"pos\": 4540,\n            \"mime_type\": \"string\",\n            \"eprintid\": 7201,\n            \"files\": [\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 4361,\n                \"hash_type\": \"string\",\n                \"fileid\": 7469\n              },\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 1131,\n                \"hash_type\": \"string\",\n                \"fileid\": 7506\n              }\n            ],\n            \"placement\": 6015\n          },\n          {\n            \"rev_number\": 9509,\n            \"docid\": 6330,\n            \"format\": \"string\",\n            \"main\": \"string\",\n            \"language\": \"string\",\n            \"uri\": \"string\",\n            \"content\": \"string\",\n            \"license\": \"string\",\n            \"security\": \"string\",\n            \"pos\": 3480,\n            \"mime_type\": \"string\",\n            \"eprintid\": 73,\n            \"files\": [\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 713,\n                \"hash_type\": \"string\",\n                \"fileid\": 5801\n              },\n              {\n                \"filename\": \"string\",\n                \"mime_type\": \"string\",\n                \"datasetid\": \"string\",\n                \"filesize\": \"string\",\n                \"mtime\": \"string\",\n                \"uri\": \"string\",\n                \"hash\": \"string\",\n                \"objectid\": 1446,\n                \"hash_type\": \"string\",\n                \"fileid\": 1654\n              }\n            ],\n            \"placement\": 5623\n          }\n        ],\n        \"harvardReference\": [\n          \"string\",\n          \"string\"\n        ],\n        \"related_url\": \"string\",\n        \"full_text_status\": \"string\",\n        \"dir\": \"string\",\n        \"userid\": 8781,\n        \"divisions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"datestamp\": \"string\",\n        \"ispublished\": \"string\",\n        \"rioxx2_format\": \"string\",\n        \"eprintid\": \"string\",\n        \"publication\": \"string\",\n        \"wos\": {\n          \"cluster\": \"string\",\n          \"datestamp\": \"string\",\n          \"impact\": \"string\"\n        },\n        \"cardiff_browse_id\": \"string\",\n        \"lastmod\": \"string\",\n        \"id_number\": \"string\",\n        \"rev_number\": 560,\n        \"eprint_status\": \"string\",\n        \"rioxx2_author\": [\n          {\n            \"author\": \"string\"\n          },\n          {\n            \"author\": \"string\"\n          }\n        ],\n        \"refereed\": \"string\",\n        \"volume\": \"string\",\n        \"rioxx2_version\": \"string\",\n        \"official_url\": \"string\",\n        \"publisher\": \"string\",\n        \"rioxx2_source\": \"string\",\n        \"rioxx2_description\": \"string\",\n        \"pagerange\": \"string\",\n        \"status_changed\": \"string\",\n        \"rioxx2_version_of_record\": \"string\",\n        \"creators\": [\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            },\n            \"id\": \"string\",\n            \"uniqueid\": \"string\"\n          },\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            },\n            \"id\": \"string\",\n            \"uniqueid\": \"string\"\n          }\n        ],\n        \"coversheet\": \"string\",\n        \"coauthors\": 2500,\n        \"title\": \"string\",\n        \"rioxx2_free_to_read\": {\n          \"free_to_read\": \"string\"\n        },\n        \"security\": \"string\",\n        \"sword_depositor\": \"string\",\n        \"rioxx2_publication_date\": \"string\",\n        \"editors\": [\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            }\n          },\n          {\n            \"name\": {\n              \"lineage\": \"string\",\n              \"given\": \"string\",\n              \"honourific\": \"string\",\n              \"family\": \"string\"\n            }\n          }\n        ],\n        \"selected_by\": [\n          \"string\",\n          \"string\"\n        ],\n        \"rioxx2_type\": \"string\",\n        \"subjects\": [\n          \"string\",\n          \"string\"\n        ],\n        \"rioxx2_publisher\": \"string\",\n        \"scopus\": {\n          \"cluster\": \"string\",\n          \"datestamp\": \"string\",\n          \"impact\": \"string\"\n        },\n        \"rioxx2_publication_datec\": \"string\",\n        \"abstract\": \"string\",\n        \"uri\": \"string\",\n        \"rioxx2_license_ref\": {\n          \"license_ref\": \"string\",\n          \"start_date\": \"string\"\n        },\n        \"rioxx2_identifier\": \"string\",\n        \"rioxx2_title\": \"string\",\n        \"metadata_visibility\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 7835,\n    \"contentType\": \"string\",\n    \"count\": 1649,\n    \"errorStatus\": false,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0a52e0fa-a697-4f98-90bc-9b5a27d99018",
+    "name": "CoursesApi Assessments Publications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

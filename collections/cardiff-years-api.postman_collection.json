@@ -1,0 +1,212 @@
+{
+  "item": [
+    {
+      "id": "abf3732c-36fd-438f-a326-792ec581bea0",
+      "name": "Years",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd192b55-ea54-44bc-acf6-ed4a3ae102b9",
+          "name": "Retrieve a list of academic years within the Univesity.",
+          "request": {
+            "name": "Retrieve a list of academic years within the Univesity.",
+            "description": {},
+            "url": {
+              "path": [
+                "years"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>",
+                  "description": "Mode of retrieving the list of year. Options are \"current\",\"between\" and \"amount\". For \"current\" mode, it returns the current academic year in a single object. For \"between\" mode, input parameters \"from\" and \"to\" are used. (e.g. \"from=2023&to=2033\"). For \"amount\" mode, input parameters \"from\" and \"numofyears\" are used. (e.g. \"from=2023&numofyears=12\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Using with \"between\" or \"amount\" mode. Selected year to start from (e.g. 2023). Default value is current academic year."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "Using with \"between\" mode. Selected year to end (inclustive) (e.g. 2033)."
+                },
+                {
+                  "disabled": false,
+                  "key": "numofyears",
+                  "value": "<integer>",
+                  "description": "Using with \"amount\" mode. Number of years to return. It can be a positive number (select N years forward) or a negative number (select N years backward) (e.g. 12, -12)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Using without mode. Number of years to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Using without mode. Offset of years to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bf368120-31de-43f3-a0c2-50c16cda4df3",
+              "name": "Returns a list of academic years",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "years"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "numofyears",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"years\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"startDate\": \"string\",\n        \"endDate\": \"string\",\n        \"current\": false\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"startDate\": \"string\",\n        \"endDate\": \"string\",\n        \"current\": false\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 4448,\n    \"contentType\": \"string\",\n    \"count\": 6442,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"message\": \"string\",\n      \"code\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "12bd5c45-ff05-4737-b1d7-288a0be70c06",
+    "name": "CoursesApi Assessments Years API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

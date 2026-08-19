@@ -1,0 +1,635 @@
+{
+  "item": [
+    {
+      "id": "b5013cf2-7d6e-469f-bdeb-9cbc32ca9766",
+      "name": "Courses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4a71a4d8-14d9-4367-8dad-1b24cad8f92d",
+          "name": "Returns specified course.",
+          "request": {
+            "name": "Returns specified course.",
+            "description": {
+              "content": "This endpoint returns the course with the specified course code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year, used to filter which course details are returned. Defaults to current year"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Returns the course in specified language. Available options are english or welsh."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Specifies which course to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8314f0ed-08e0-491d-94c7-ff0c9fc5afad",
+              "name": "Returns specified course",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Specifies which course to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"course\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"accreditations\": [\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          },\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          }\n        ],\n        \"kisId\": \"string\",\n        \"subjects\": [\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"length\": \"string\",\n        \"staff\": [\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          },\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          }\n        ],\n        \"descriptions\": [\n          {\n            \"code\": \"string\",\n            \"posCode\": \"string\",\n            \"text\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"code\": \"string\",\n            \"posCode\": \"string\",\n            \"text\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"applyPoints\": [\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          },\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          }\n        ],\n        \"distanceLearn\": \"string\",\n        \"market\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"qualification\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"schools\": [\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"lengthUnit\": \"string\",\n        \"externalReturnFormat\": \"string\",\n        \"nextIntake\": \"string\",\n        \"entryMethod\": \"string\",\n        \"attendance\": \"string\",\n        \"group\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"accreditations\": [\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          },\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          }\n        ],\n        \"kisId\": \"string\",\n        \"subjects\": [\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"length\": \"string\",\n        \"staff\": [\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          },\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          }\n        ],\n        \"descriptions\": [\n          {\n            \"code\": \"string\",\n            \"posCode\": \"string\",\n            \"text\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"code\": \"string\",\n            \"posCode\": \"string\",\n            \"text\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"applyPoints\": [\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          },\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          }\n        ],\n        \"distanceLearn\": \"string\",\n        \"market\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"qualification\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"schools\": [\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"lengthUnit\": \"string\",\n        \"externalReturnFormat\": \"string\",\n        \"nextIntake\": \"string\",\n        \"entryMethod\": \"string\",\n        \"attendance\": \"string\",\n        \"group\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 2300,\n    \"contentType\": \"string\",\n    \"count\": 2534,\n    \"errorStatus\": false,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "177aae17-3c23-4fd8-a164-570f56e9de2f",
+          "name": "Returns descriptions for the course.",
+          "request": {
+            "name": "Returns descriptions for the course.",
+            "description": {
+              "content": "This endpoint returns the descriptions for the specified course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":code",
+                "descriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year, used to return the course structure for the specified year. Defaults to current year"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Returns the course descriptions in the specified language. Available options are english or welsh."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Specifies which course to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25018fa4-f224-43d8-8f54-fc187b0ce044",
+              "name": "Returns descriptions for the course",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":code",
+                    "descriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Specifies which course to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"descriptions\": [\n      {\n        \"posCode\": \"string\",\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"text\": \"string\"\n      },\n      {\n        \"posCode\": \"string\",\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"text\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 7091,\n    \"contentType\": \"string\",\n    \"count\": 5390,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "641359a8-7f3c-4a2f-8934-1a18c8d9955d",
+          "name": "Returns the module structure for a course.",
+          "request": {
+            "name": "Returns the module structure for a course.",
+            "description": {
+              "content": "This endpoint returns the module structure for the specified course code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":code",
+                "structure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year, used to return the course structure for the specified year. Defaults to current year"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Specifies which course to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4a11aac8-eace-4537-80c1-708c2c2d6407",
+              "name": "Returns the module structure for a course",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":code",
+                    "structure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Specifies which course to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"blocks\": [\n      {\n        \"programmeYear\": \"string\",\n        \"blockCode\": \"string\",\n        \"sandwichYear\": \"string\",\n        \"length\": \"string\",\n        \"parts\": [\n          {\n            \"coreModules\": [\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              },\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              }\n            ],\n            \"endDate\": \"string\",\n            \"freeStanding\": \"string\",\n            \"yosCode\": \"string\",\n            \"proportionTeachInWelsh\": \"string\",\n            \"optionalModules\": [\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              },\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              }\n            ],\n            \"startDate\": \"string\"\n          },\n          {\n            \"coreModules\": [\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              },\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              }\n            ],\n            \"endDate\": \"string\",\n            \"freeStanding\": \"string\",\n            \"yosCode\": \"string\",\n            \"proportionTeachInWelsh\": \"string\",\n            \"optionalModules\": [\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              },\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              }\n            ],\n            \"startDate\": \"string\"\n          }\n        ],\n        \"tutionFees\": {\n          \"international\": {\n            \"notes\": \"string\",\n            \"fee\": 2622,\n            \"deposit\": 3746\n          },\n          \"home\": {\n            \"notes\": \"string\",\n            \"fee\": 3931,\n            \"deposit\": 6739\n          }\n        },\n        \"type\": \"string\"\n      },\n      {\n        \"programmeYear\": \"string\",\n        \"blockCode\": \"string\",\n        \"sandwichYear\": \"string\",\n        \"length\": \"string\",\n        \"parts\": [\n          {\n            \"coreModules\": [\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              },\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              }\n            ],\n            \"endDate\": \"string\",\n            \"freeStanding\": \"string\",\n            \"yosCode\": \"string\",\n            \"proportionTeachInWelsh\": \"string\",\n            \"optionalModules\": [\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              },\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              }\n            ],\n            \"startDate\": \"string\"\n          },\n          {\n            \"coreModules\": [\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              },\n              {\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"level\": \"string\",\n                \"credits\": \"string\",\n                \"name\": \"string\",\n                \"partCode\": \"string\",\n                \"occurrence\": \"string\"\n              }\n            ],\n            \"endDate\": \"string\",\n            \"freeStanding\": \"string\",\n            \"yosCode\": \"string\",\n            \"proportionTeachInWelsh\": \"string\",\n            \"optionalModules\": [\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              },\n              {\n                \"blockCode\": \"string\",\n                \"reqtCode\": \"string\",\n                \"code\": \"string\",\n                \"minCredits\": \"string\",\n                \"name\": \"string\",\n                \"modules\": [\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"code\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"level\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"credits\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"maxCredits\": \"string\"\n              }\n            ],\n            \"startDate\": \"string\"\n          }\n        ],\n        \"tutionFees\": {\n          \"international\": {\n            \"notes\": \"string\",\n            \"fee\": 5867,\n            \"deposit\": 7401\n          },\n          \"home\": {\n            \"notes\": \"string\",\n            \"fee\": 8606,\n            \"deposit\": 2116\n          }\n        },\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 9586,\n    \"contentType\": \"string\",\n    \"count\": 8157,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a69d43b-6db5-48a8-8a52-3aa47d80d69e",
+          "name": "List all courses",
+          "request": {
+            "name": "List all courses",
+            "description": {
+              "content": "The root endpoint returns a list of courses available within the University.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "moa",
+                  "value": "<string>",
+                  "description": "Mode of Attendance filter e.g. Full-time, Part-time"
+                },
+                {
+                  "disabled": false,
+                  "key": "school",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)"
+                },
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<string>",
+                  "description": "Returns courses linked to the specified course group code e.g. Z001 (Accounting)"
+                },
+                {
+                  "disabled": false,
+                  "key": "qual",
+                  "value": "<string>",
+                  "description": "Returns courses linked to the specified qualification code e.g. BLA (Bachelor of Laws)"
+                },
+                {
+                  "disabled": false,
+                  "key": "distance",
+                  "value": "<string>",
+                  "description": "Can be used to return distance learning courses. Can be either Y or N."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Returns the courses in specified language. Available options are english or welsh."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filters courses by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Number of courses to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of courses to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3fa2c69c-f716-4249-8b6d-2295d9d278de",
+              "name": "List all courses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "moa",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "school",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "qual",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"courses\": [\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"accreditations\": [\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          },\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          }\n        ],\n        \"kisId\": \"string\",\n        \"subjects\": [\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"length\": \"string\",\n        \"staff\": [\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          },\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          }\n        ],\n        \"applyPoints\": [\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          },\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          }\n        ],\n        \"distanceLearn\": \"string\",\n        \"market\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"qualification\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"schools\": [\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"lengthUnit\": \"string\",\n        \"externalReturnFormat\": \"string\",\n        \"nextIntake\": \"string\",\n        \"entryMethod\": \"string\",\n        \"attendance\": \"string\",\n        \"group\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"accreditations\": [\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          },\n          {\n            \"website\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"accURL\": \"string\"\n          }\n        ],\n        \"kisId\": \"string\",\n        \"subjects\": [\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"length\": \"string\",\n        \"staff\": [\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          },\n          {\n            \"role\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\",\n            \"staffId\": \"string\"\n          }\n        ],\n        \"applyPoints\": [\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          },\n          {\n            \"year\": \"string\",\n            \"link\": \"string\",\n            \"posCode\": \"string\",\n            \"startDate\": \"string\"\n          }\n        ],\n        \"distanceLearn\": \"string\",\n        \"market\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"qualification\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"schools\": [\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          },\n          {\n            \"flag\": \"string\",\n            \"code\": \"string\",\n            \"name\": \"string\",\n            \"posCode\": \"string\"\n          }\n        ],\n        \"lengthUnit\": \"string\",\n        \"externalReturnFormat\": \"string\",\n        \"nextIntake\": \"string\",\n        \"entryMethod\": \"string\",\n        \"attendance\": \"string\",\n        \"group\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 8832,\n    \"contentType\": \"string\",\n    \"count\": 4669,\n    \"errorStatus\": false,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "432363a8-a828-4e1c-b76a-2f86b62f4683",
+    "name": "CoursesApi Assessments Courses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

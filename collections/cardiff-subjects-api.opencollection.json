@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Subjects API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subjects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of all subjects taught within the Univesity.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/subjects",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Programme Type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of subjects to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of subjects to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorts the data by column name, use \"-\" for descending"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve a list of all subjects taught within the Univesity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

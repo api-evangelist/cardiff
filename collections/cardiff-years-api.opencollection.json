@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Years API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Years",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of academic years within the Univesity.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/years",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Mode of retrieving the list of year. Options are \"current\",\"between\" and \"amount\". For \"current\" mode, it returns the current academic year in a single object. For \"between\" mode, input parameters \"from\" and \"to\" are used. (e.g. \"from=2023&to=2033\"). For \"amount\" mode, input parameters \"from\" and \"numofyears\" are used. (e.g. \"from=2023&numofyears=12\")."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Using with \"between\" or \"amount\" mode. Selected year to start from (e.g. 2023). Default value is current academic year."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Using with \"between\" mode. Selected year to end (inclustive) (e.g. 2033)."
+              },
+              {
+                "name": "numofyears",
+                "value": "",
+                "type": "query",
+                "description": "Using with \"amount\" mode. Number of years to return. It can be a positive number (select N years forward) or a negative number (select N years backward) (e.g. 12, -12)"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorts the data by column name, use \"-\" for descending"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Using without mode. Number of years to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Using without mode. Offset of years to return"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve a list of academic years within the Univesity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

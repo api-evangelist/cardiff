@@ -1,0 +1,693 @@
+{
+  "item": [
+    {
+      "id": "8f0ea87c-e295-4c3e-a12a-9904c8aa6ba7",
+      "name": "Occurrences",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5b93bf1-4c66-493a-83fd-7e6a2ff206a0",
+          "name": "Returns specified module.",
+          "request": {
+            "name": "Returns specified module.",
+            "description": {
+              "content": "This endpoint returns the module with the specified module code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":code",
+                "occurrences",
+                ":occurrence"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Specifies which module to return"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "occurrence",
+                  "description": "(Required) Specifies which occurrence to return for the module. Defaults to current year e.g. 14A"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff4d1979-dec5-48c3-9942-ff48f0a616c0",
+              "name": "Returns specified occurrence for the module",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":code",
+                    "occurrences",
+                    ":occurrence"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Specifies which module to return"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "occurrence",
+                      "description": "(Required) Specifies which occurrence to return for the module. Defaults to current year e.g. 14A"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"assessments\": [\n      {\n        \"code\": \"string\",\n        \"dueDay\": \"string\",\n        \"duePeriod\": \"string\",\n        \"dueWeek\": \"string\",\n        \"examDuration\": \"string\",\n        \"name\": \"string\",\n        \"percentage\": \"string\",\n        \"qualifyingMark\": \"string\",\n        \"seq\": \"string\",\n        \"type\": \"string\",\n        \"typeCode\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"dueDay\": \"string\",\n        \"duePeriod\": \"string\",\n        \"dueWeek\": \"string\",\n        \"examDuration\": \"string\",\n        \"name\": \"string\",\n        \"percentage\": \"string\",\n        \"qualifyingMark\": \"string\",\n        \"seq\": \"string\",\n        \"type\": \"string\",\n        \"typeCode\": \"string\"\n      }\n    ],\n    \"module\": [\n      {\n        \"code\": \"string\",\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": \"string\",\n        \"language\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"noOfPeriods\": \"string\",\n        \"type\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"level\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"year\": \"string\",\n        \"subject\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrence\": \"string\",\n        \"school\": {\n          \"parent\": \"string\",\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrenceName\": \"string\",\n        \"semester\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": \"string\",\n        \"language\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"noOfPeriods\": \"string\",\n        \"type\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"level\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"year\": \"string\",\n        \"subject\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrence\": \"string\",\n        \"school\": {\n          \"parent\": \"string\",\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrenceName\": \"string\",\n        \"semester\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": \"string\"\n      }\n    ],\n    \"descriptions\": [\n      {\n        \"code\": \"string\",\n        \"text\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"text\": \"string\",\n        \"title\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 5555,\n    \"contentType\": \"string\",\n    \"count\": 7576,\n    \"errorStatus\": false,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c73edde3-92dd-491e-bd20-4b8b567b74ef",
+          "name": "Returns occurrences for a module.",
+          "request": {
+            "name": "Returns occurrences for a module.",
+            "description": {
+              "content": "This endpoint returns all occurrences for the module with the specified module code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":code",
+                "occurrences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year, used to filter which occurrences are returned. Defaults to current year"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Specifies which module to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5c6aff91-4f65-47a8-89eb-7de481060c3d",
+              "name": "Returns occurrences for the specified module",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":code",
+                    "occurrences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Specifies which module to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"occurrences\": [\n      {\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"occurrence\": \"string\",\n        \"semester\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": 3637,\n        \"year\": \"string\"\n      },\n      {\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"occurrence\": \"string\",\n        \"semester\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": 7821,\n        \"year\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 7335,\n    \"contentType\": \"string\",\n    \"count\": 891,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a79f88f0-75f2-4a22-9bdd-867f7838eb79",
+          "name": "List all module occurrences",
+          "request": {
+            "name": "List all module occurrences",
+            "description": {
+              "content": "This endpoint returns a list of module occurrences available with the University.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "occurrences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year filter, defaults to current year. Defaults to current year"
+                },
+                {
+                  "disabled": false,
+                  "key": "school",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)"
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified level code e.g. L4 (Level 4 UG Certificate)"
+                },
+                {
+                  "disabled": false,
+                  "key": "staffId",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified staff member"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified subject code e.g. A300 (Clinical Medicine)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified lenguage"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "500",
+                  "description": "Number of modules to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of modules to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "39a747e5-5a2f-4ab9-ae06-b6c124b478c3",
+              "name": "List all module occurrences",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "occurrences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "school",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "staffId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "500"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"modules\": [\n      {\n        \"code\": \"string\",\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": 5073,\n        \"language\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"noOfPeriods\": 1403,\n        \"type\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"level\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"year\": \"string\",\n        \"subject\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrence\": \"string\",\n        \"school\": {\n          \"parent\": \"string\",\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": 7423\n      },\n      {\n        \"code\": \"string\",\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": 9116,\n        \"language\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"noOfPeriods\": 4934,\n        \"type\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"level\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"year\": \"string\",\n        \"subject\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrence\": \"string\",\n        \"school\": {\n          \"parent\": \"string\",\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": 1740\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 7879,\n    \"contentType\": \"string\",\n    \"count\": 5413,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c08a8fa9-48ff-4697-afbe-39e8b112210c",
+          "name": "List all module occurrences in LEARN",
+          "request": {
+            "name": "List all module occurrences in LEARN",
+            "description": {
+              "content": "This endpoint returns a list of module occurrences in LEARN available with the University.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "learn-occurrences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year filter, defaults to current year. Defaults to current year"
+                },
+                {
+                  "disabled": false,
+                  "key": "school",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)"
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified level code e.g. L4 (Level 4 UG Certificate)"
+                },
+                {
+                  "disabled": false,
+                  "key": "staffId",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified staff member"
+                },
+                {
+                  "disabled": false,
+                  "key": "subject",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified subject code e.g. A300 (Clinical Medicine)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Returns modules linked to the specified lenguage"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "500",
+                  "description": "Number of modules to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of modules to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts the data by column name, use \"-\" for descending"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "38bd6cbe-bda0-4d30-83ee-5529f1e8204f",
+              "name": "List all module occurrences in LEARN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "learn-occurrences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "school",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "staffId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "subject",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "500"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"modules\": [\n      {\n        \"code\": \"string\",\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": 5073,\n        \"language\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"noOfPeriods\": 1403,\n        \"type\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"level\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"year\": \"string\",\n        \"subject\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrence\": \"string\",\n        \"school\": {\n          \"parent\": \"string\",\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": 7423\n      },\n      {\n        \"code\": \"string\",\n        \"collaborators\": [\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"forename\": \"string\",\n            \"surname\": \"string\",\n            \"fullName\": \"string\",\n            \"title\": \"string\",\n            \"staffId\": \"string\",\n            \"username\": \"string\",\n            \"email\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"credits\": 9116,\n        \"language\": \"string\",\n        \"moduleLeader\": {\n          \"forename\": \"string\",\n          \"surname\": \"string\",\n          \"fullName\": \"string\",\n          \"title\": \"string\",\n          \"staffId\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\"\n        },\n        \"name\": \"string\",\n        \"noOfPeriods\": 4934,\n        \"type\": \"string\",\n        \"dateOflastClass\": \"string\",\n        \"dateOfFirstClass\": \"string\",\n        \"level\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"year\": \"string\",\n        \"subject\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"occurrence\": \"string\",\n        \"school\": {\n          \"parent\": \"string\",\n          \"code\": \"string\",\n          \"name\": \"string\"\n        },\n        \"welshPerc\": 1740\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 7879,\n    \"contentType\": \"string\",\n    \"count\": 5413,\n    \"errorStatus\": true,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ba2d6cd5-0a77-4b1e-8de6-5ce0b3392ae2",
+    "name": "CoursesApi Assessments Occurrences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

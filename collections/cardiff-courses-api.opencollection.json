@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Courses API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Courses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns specified course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Specifies which course to return"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year, used to filter which course details are returned. Defaults to current year"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Returns the course in specified language. Available options are english or welsh."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns the course with the specified course code."
+        },
+        {
+          "info": {
+            "name": "Returns descriptions for the course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code/descriptions",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Specifies which course to return"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year, used to return the course structure for the specified year. Defaults to current year"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Returns the course descriptions in the specified language. Available options are english or welsh."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns the descriptions for the specified course."
+        },
+        {
+          "info": {
+            "name": "Returns the module structure for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code/structure",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Specifies which course to return"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year, used to return the course structure for the specified year. Defaults to current year"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns the module structure for the specified course code."
+        },
+        {
+          "info": {
+            "name": "List all courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/",
+            "params": [
+              {
+                "name": "moa",
+                "value": "",
+                "type": "query",
+                "description": "Mode of Attendance filter e.g. Full-time, Part-time"
+              },
+              {
+                "name": "school",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)"
+              },
+              {
+                "name": "group",
+                "value": "",
+                "type": "query",
+                "description": "Returns courses linked to the specified course group code e.g. Z001 (Accounting)"
+              },
+              {
+                "name": "qual",
+                "value": "",
+                "type": "query",
+                "description": "Returns courses linked to the specified qualification code e.g. BLA (Bachelor of Laws)"
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query",
+                "description": "Can be used to return distance learning courses. Can be either Y or N."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Returns the courses in specified language. Available options are english or welsh."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filters courses by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of courses to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of courses to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorts the data by column name, use \"-\" for descending"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "The root endpoint returns a list of courses available within the University."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Occurrences API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Occurrences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns specified module.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code/occurrences/:occurrence",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Specifies which module to return"
+              },
+              {
+                "name": "occurrence",
+                "value": "",
+                "type": "path",
+                "description": "Specifies which occurrence to return for the module. Defaults to current year e.g. 14A"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns the module with the specified module code."
+        },
+        {
+          "info": {
+            "name": "Returns occurrences for a module.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code/occurrences",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Specifies which module to return"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year, used to filter which occurrences are returned. Defaults to current year"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns all occurrences for the module with the specified module code."
+        },
+        {
+          "info": {
+            "name": "List all module occurrences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/occurrences",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year filter, defaults to current year. Defaults to current year"
+              },
+              {
+                "name": "school",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified level code e.g. L4 (Level 4 UG Certificate)"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified staff member"
+              },
+              {
+                "name": "subject",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified subject code e.g. A300 (Clinical Medicine)"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified lenguage"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of modules to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of modules to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorts the data by column name, use \"-\" for descending"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns a list of module occurrences available with the University."
+        },
+        {
+          "info": {
+            "name": "List all module occurrences in LEARN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/learn-occurrences",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year filter, defaults to current year. Defaults to current year"
+              },
+              {
+                "name": "school",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified school code e.g. SOCSI (Social Sciences)"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified level code e.g. L4 (Level 4 UG Certificate)"
+              },
+              {
+                "name": "staffId",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified staff member"
+              },
+              {
+                "name": "subject",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified subject code e.g. A300 (Clinical Medicine)"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Returns modules linked to the specified lenguage"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filters modules by programme type. Accepted values: P (Postgraduate), R (Research) or U (Undergraduate). (Note: This parameter is case sensitive.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of modules to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of modules to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorts the data by column name, use \"-\" for descending"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint returns a list of module occurrences in LEARN available with the University."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

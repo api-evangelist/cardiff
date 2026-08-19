@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "007165c1-85a2-41dd-ad9a-a3c28fde3d08",
+      "name": "Assessments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "17ff894b-1dc4-4cca-9371-82a09966069f",
+          "name": "Returns the assessments for a module",
+          "request": {
+            "name": "Returns the assessments for a module",
+            "description": {
+              "content": "This endpoint returns a list of assessments with the specified module code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":code",
+                "assessments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Academic year, used to filter which assessments are returned. Defaults to current year"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Specifies which module to return"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "clearing"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.data.cardiff.ac.uk/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "32c9387d-d0a3-4674-8887-6a3b982e0d18",
+              "name": "Returns a list of assessments for the specified module",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":code",
+                    "assessments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Specifies which module to return"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"assessments\": [\n      {\n        \"code\": \"string\",\n        \"dueDay\": \"string\",\n        \"duePeriod\": \"string\",\n        \"dueWeek\": \"string\",\n        \"examDuration\": \"string\",\n        \"name\": \"string\",\n        \"percentage\": \"string\",\n        \"qualifyingMark\": \"string\",\n        \"seq\": \"string\",\n        \"type\": \"string\",\n        \"typeCode\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"dueDay\": \"string\",\n        \"duePeriod\": \"string\",\n        \"dueWeek\": \"string\",\n        \"examDuration\": \"string\",\n        \"name\": \"string\",\n        \"percentage\": \"string\",\n        \"qualifyingMark\": \"string\",\n        \"seq\": \"string\",\n        \"type\": \"string\",\n        \"typeCode\": \"string\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"code\": 8818,\n    \"contentType\": \"string\",\n    \"count\": 8076,\n    \"errorStatus\": false,\n    \"errorMessage\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "clearing"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.data.cardiff.ac.uk/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8a6f41c7-1b3d-4fcd-9321-588e952f7321",
+    "name": "CoursesApi Assessments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.\n\nContact Support:\n Name: integration@cardiff.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}

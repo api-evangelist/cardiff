@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CoursesApi Assessments Clearing Adjustments API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clearing Adjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return adjustment data for clearing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.data.cardiff.ac.uk/courses/v1/clearing-adjustments",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Academic year, used to return the course structure for the specified year. Defaults to current year"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.data.cardiff.ac.uk/authorize",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Currently only in pre-production"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
