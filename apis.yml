@@ -39,7 +39,7 @@ tags:
   - Research
 created: '2026-06-03'
 modified: '2026-06-03'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: cardiff:cardiff-assessments-api
   name: Cardiff University Assessments API
