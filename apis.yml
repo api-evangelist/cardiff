@@ -113,7 +113,8 @@ apis:
   description: The * API from Cardiff University — 1 operation(s) for *.
   humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
   baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
+  tags: []
+  tags_raw:
   - '*'
   properties:
   - type: OpenAPI
@@ -136,6 +137,8 @@ apis:
   humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
   baseURL: https://api.data.cardiff.ac.uk/courses/v1
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -355,7 +358,8 @@ apis:
   description: The Test API from Cardiff University — 1 operation(s) for test.
   humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
   baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
