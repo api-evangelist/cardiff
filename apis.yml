@@ -11,6 +11,18 @@ description: >-
   access tokens, with external developer access granted on request by emailing
   integration@cardiff.ac.uk. The gateway is hosted at api.data.cardiff.ac.uk.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
