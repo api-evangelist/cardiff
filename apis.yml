@@ -411,6 +411,9 @@ apis:
   - type: Documentation
     url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
 common:
+  - type: CapabilityMap
+    url: capabilities/cardiff-capability-edges.yml
+    name: Cardiff University Business Capability Map
   - type: AgenticAccess
     url: agentic-access/cardiff-agentic-access.yml
   - type: DomainSecurity

@@ -1,0 +1,43 @@
+slug: cardiff
+provider: Cardiff University
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Courses
+  spec_file: cardiff-courses-api-openapi.yml
+  capability_id: BC-4700.40
+  capability_id_l1: BC-4700
+  capability_name: Programme Catalogue Management
+  confidence: 0.85
+  evidence: '''List all courses'', ''Returns descriptions for the course.'', ''Returns the module structure
+    for a course.'''
+  reason: Read API over the institutional catalogue of courses, their descriptions and module structure
+    — programme catalogue publication.
+- tag: Modules
+  spec_file: cardiff-modules-api-openapi.yml
+  capability_id: BC-4700.40
+  capability_id_l1: BC-4700
+  capability_name: Programme Catalogue Management
+  confidence: 0.8
+  evidence: '''List all modules'', ''Returns specified module.'', ''Returns the module catalogues'''
+  reason: Read access to the module catalogue including module records and module catalogues — catalogue
+    management of the institution's units of learning.
+- tag: Publications
+  spec_file: cardiff-publications-api-openapi.yml
+  capability_id: BC-4780.40
+  capability_id_l1: BC-4780
+  capability_name: Scholarly Output & Publication Management
+  confidence: 0.78
+  evidence: '''List all publications'', ''Returns specified publication.'' with eprintid path parameter'
+  reason: An eprints-backed repository of the university's research publications — stewardship and exposure
+    of scholarly output.
