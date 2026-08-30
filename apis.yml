@@ -1,42 +1,53 @@
 ---
 aid: cardiff
 name: Cardiff University
+x-type: university
+x-category: Public Research University
 description: >-
-  Cardiff University is a public research university in Cardiff, Wales, United
-  Kingdom, ranked #186 in the QS World University Rankings 2025. The university
-  operates a public developer portal at data.cardiff.ac.uk (powered by WSO2 API
-  Manager) exposing a small set of RESTful institutional APIs covering courses,
-  modules, lookups, and research publications. The APIs are OAuth2-secured:
-  integration requires creating an application and generating consumer keys and
-  access tokens, with external developer access granted on request by emailing
-  integration@cardiff.ac.uk. The gateway is hosted at api.data.cardiff.ac.uk.
+  Cardiff University is a public research university in Cardiff, Wales, and a member of the
+  Russell Group. Unusually for a UK institution it operates its own API gateway rather than only
+  buying one: api.data.cardiff.ac.uk runs WSO2 API Manager under the University's own registrable
+  domain and serves five institution-authored REST contracts - Courses, Modules, Lookups,
+  Publications and an Echo connectivity test - published through a developer portal at
+  data.cardiff.ac.uk/devportal. Access is OAuth2 client-credentials and is not open self-serve:
+  external developers must email integration@cardiff.ac.uk with a use case before an application
+  can be created. As of a probe on 2026-08-30 both data.cardiff.ac.uk and api.data.cardiff.ac.uk
+  302-redirect every path to the University's service-unavailable page at outage.cf.ac.uk, so
+  nothing on the gateway is callable from outside at this moment; the contracts in this repository
+  were harvested while it was up. Beyond the gateway, Cardiff's genuinely institution-operated
+  machine-readable surfaces are its Shibboleth identity federation membership (a registered UK
+  Access Management Federation IdP), the OAI-PMH interface of its own EPrints repository ORCA, its
+  DataCite repository client and DOI prefix 10.17035, and the ARCCA research-computing GitHub
+  organisation. Its research data repository, research portal and library discovery layer are
+  vendor platforms running under Cardiff subdomains - Figshare, Clarivate Converis and Ex Libris
+  respectively - and are recorded here as tenant relationships, not as Cardiff's engineering.
 type: Index
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
+  commercial: false
   callable_host: true
-  label: Hosted service · you call their endpoint
+  label: Institution-operated gateway · you call their endpoint
   confidence: high
   source:
   - openapi
-  - pricing
-  generated: '2026-08-28'
+  - probed
+  generated: '2026-08-30'
   method: derived
 accessModel:
   pricing: free
-  onboarding: self-serve
+  onboarding: request
   trial: false
-  try_now: true
+  try_now: false
   public: false
-  label: Free · Self-serve signup
+  label: Free · Access granted on request (email integration@cardiff.ac.uk)
   confidence: high
   source:
-  - plans
   - authentication
-  generated: '2026-07-22'
-  method: derived
-position: Consumer
+  - documentation
+  generated: '2026-08-30'
+  method: searched
+position: Provider
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cardiff.png
 url: https://raw.githubusercontent.com/api-evangelist/cardiff/refs/heads/main/apis.yml
@@ -44,65 +55,30 @@ tags:
   - Education
   - Higher Education
   - University
+  - Public Research University
   - United Kingdom
   - Wales
+  - Russell Group
   - Open Data
-  - Courses
-  - Research
+  - Course Catalog
+  - Research Repository
+  - Identity Federation
+  - Research Computing
+  - Publications
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-- aid: cardiff:cardiff-assessments-api
-  name: Cardiff University Assessments API
-  description: The Assessments API from Cardiff University — 1 operation(s) for assessments.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
-  - Assessments
-  properties:
-  - type: OpenAPI
-    url: openapi/cardiff-assessments-api-openapi.yml
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  - type: Signup
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-clearing-adjustments-api
-  name: Cardiff University Clearing Adjustments API
-  description: >-
-    The Clearing Adjustments API from Cardiff University — 1 operation(s) for clearing adjustments.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
-  - Clearing Adjustments
-  properties:
-  - type: OpenAPI
-    url: openapi/cardiff-clearing-adjustments-api-openapi.yml
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  - type: Signup
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
 - aid: cardiff:cardiff-courses-api
   name: Cardiff University Courses API
-  description: The Courses API from Cardiff University — 4 operation(s) for courses.
+  description: >-
+    Course records, descriptions and structure for taught programmes. 4 operation(s), from
+    Cardiff's own CoursesApi contract on the api.data.cardiff.ac.uk gateway (base path
+    /courses/v1).
   humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
   baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-courses.yaml
   tags:
   - Courses
   properties:
@@ -110,307 +86,546 @@ apis:
     url: openapi/cardiff-courses-api-openapi.yml
   - type: Documentation
     url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-default-api
-  name: Cardiff University * API
-  description: The * API from Cardiff University — 1 operation(s) for *.
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-clearing-adjustments-api
+  name: Cardiff University Clearing Adjustments API
+  description: >-
+    Clearing and adjustment availability against the course catalogue. 1 operation(s), from
+    Cardiff's own CoursesApi contract on the api.data.cardiff.ac.uk gateway (base path
+    /courses/v1).
   humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
   baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags: []
-  tags_raw:
-  - '*'
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-courses.yaml
+  tags:
+  - Clearing Adjustments
   properties:
   - type: OpenAPI
-    url: openapi/cardiff-default-api-openapi.yml
+    url: openapi/cardiff-clearing-adjustments-api-openapi.yml
   - type: Documentation
     url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-groups-api
   name: Cardiff University Groups API
-  description: The Groups API from Cardiff University — 1 operation(s) for groups.
+  description: >-
+    Course grouping records exposed by the Courses contract. 1 operation(s), from Cardiff's own
+    CoursesApi contract on the api.data.cardiff.ac.uk gateway (base path /courses/v1).
   humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
   baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-courses.yaml
   tags:
-  - Group
-  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
     url: openapi/cardiff-groups-api-openapi.yml
   - type: Documentation
     url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-levels-api
-  name: Cardiff University Levels API
-  description: The Levels API from Cardiff University — 1 operation(s) for levels.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
-  - Levels
-  properties:
-  - type: OpenAPI
-    url: openapi/cardiff-levels-api-openapi.yml
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  - type: Signup
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-modules-api
   name: Cardiff University Modules API
-  description: The Modules API from Cardiff University — 5 operation(s) for modules.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  description: >-
+    Module records and module catalogues for taught modules. 5 operation(s), from Cardiff's own
+    ModulesApi contract on the api.data.cardiff.ac.uk gateway (base path /modules/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/modules/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-modules.yaml
   tags:
   - Modules
   properties:
   - type: OpenAPI
     url: openapi/cardiff-modules-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-assessments-api
+  name: Cardiff University Assessments API
+  description: >-
+    Assessments attached to a module, filterable by academic year. 1 operation(s), from
+    Cardiff's own ModulesApi contract on the api.data.cardiff.ac.uk gateway (base path
+    /modules/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/modules/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-modules.yaml
+  tags:
+  - Assessments
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-assessments-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-occurrences-api
   name: Cardiff University Occurrences API
-  description: The Occurrences API from Cardiff University — 4 operation(s) for occurrences.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  description: >-
+    Module occurrences, including the VLE (learn) occurrence records. 4 operation(s), from
+    Cardiff's own ModulesApi contract on the api.data.cardiff.ac.uk gateway (base path
+    /modules/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/modules/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-modules.yaml
   tags:
   - Occurrences
   properties:
   - type: OpenAPI
     url: openapi/cardiff-occurrences-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-publications-api
-  name: Cardiff University Publications API
-  description: The Publications API from Cardiff University — 2 operation(s) for publications.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
-  - Publications
-  properties:
-  - type: OpenAPI
-    url: openapi/cardiff-publications-api-openapi.yml
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  - type: Signup
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-qualifications-api
-  name: Cardiff University Qualifications API
-  description: The Qualifications API from Cardiff University — 1 operation(s) for qualifications.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
-  - Qualifications
-  properties:
-  - type: OpenAPI
-    url: openapi/cardiff-qualifications-api-openapi.yml
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  - type: Signup
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-rollover-api
   name: Cardiff University Rollover API
-  description: The Rollover API from Cardiff University — 2 operation(s) for rollover.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  description: >-
+    Year-on-year module rollover mapping. 2 operation(s), from Cardiff's own ModulesApi contract
+    on the api.data.cardiff.ac.uk gateway (base path /modules/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/modules/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-modules.yaml
   tags:
   - Rollover
   properties:
   - type: OpenAPI
     url: openapi/cardiff-rollover-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-schools-api
   name: Cardiff University Schools API
-  description: The Schools API from Cardiff University — 1 operation(s) for schools.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  description: >-
+    Reference list of academic schools used across the University. 1 operation(s), from
+    Cardiff's own LookupsApi contract on the api.data.cardiff.ac.uk gateway (base path
+    /lookups/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-lookups.yaml
   tags:
   - Schools
   properties:
   - type: OpenAPI
     url: openapi/cardiff-schools-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-semesters-api
-  name: Cardiff University Semesters API
-  description: The Semesters API from Cardiff University — 1 operation(s) for semesters.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags:
-  - Semesters
-  properties:
-  - type: OpenAPI
-    url: openapi/cardiff-semesters-api-openapi.yml
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  - type: Signup
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-subjects-api
   name: Cardiff University Subjects API
-  description: The Subjects API from Cardiff University — 1 operation(s) for subjects.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  description: >-
+    Reference list of subject codes. 1 operation(s), from Cardiff's own LookupsApi contract on
+    the api.data.cardiff.ac.uk gateway (base path /lookups/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-lookups.yaml
   tags:
   - Subjects
   properties:
   - type: OpenAPI
     url: openapi/cardiff-subjects-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
-- aid: cardiff:cardiff-test-api
-  name: Cardiff University Test API
-  description: The Test API from Cardiff University — 1 operation(s) for test.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
-  tags: []
-  tags_raw:
-  - Test
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-levels-api
+  name: Cardiff University Levels API
+  description: >-
+    Reference list of study levels. 1 operation(s), from Cardiff's own LookupsApi contract on
+    the api.data.cardiff.ac.uk gateway (base path /lookups/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-lookups.yaml
+  tags:
+  - Levels
   properties:
   - type: OpenAPI
-    url: openapi/cardiff-test-api-openapi.yml
+    url: openapi/cardiff-levels-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-semesters-api
+  name: Cardiff University Semesters API
+  description: >-
+    Reference list of semester codes. 1 operation(s), from Cardiff's own LookupsApi contract on
+    the api.data.cardiff.ac.uk gateway (base path /lookups/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-lookups.yaml
+  tags:
+  - Semesters
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-semesters-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-qualifications-api
+  name: Cardiff University Qualifications API
+  description: >-
+    Reference list of qualification codes. 1 operation(s), from Cardiff's own LookupsApi
+    contract on the api.data.cardiff.ac.uk gateway (base path /lookups/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-lookups.yaml
+  tags:
+  - Qualifications
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-qualifications-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
 - aid: cardiff:cardiff-years-api
   name: Cardiff University Years API
-  description: The Years API from Cardiff University — 1 operation(s) for years.
-  humanURL: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
-  baseURL: https://api.data.cardiff.ac.uk/courses/v1
+  description: >-
+    Reference list of academic years. 1 operation(s), from Cardiff's own LookupsApi contract on
+    the api.data.cardiff.ac.uk gateway (base path /lookups/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/lookups/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-lookups.yaml
   tags:
   - Years
   properties:
   - type: OpenAPI
     url: openapi/cardiff-years-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/1353914a-a34a-4fb5-85ac-ef06dda0bf2b
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
   - type: Signup
     url: https://data.cardiff.ac.uk/devportal/
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/e1345fea-99ae-4b42-8a0a-06b321ce5137
-  - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/80738ed1-f656-45ef-ac30-df693142f8ed
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-publications-api
+  name: Cardiff University Publications API
+  description: >-
+    Research publication records, keyed on the ORCA EPrints identifier. 2 operation(s), from
+    Cardiff's own PublicationsApi contract on the api.data.cardiff.ac.uk gateway (base path
+    /publications/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+  baseURL: https://api.data.cardiff.ac.uk/publications/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-publications.yaml
+  tags:
+  - Publications
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-publications-api-openapi.yml
   - type: Documentation
     url: https://data.cardiff.ac.uk/devportal/apis/32d23956-5638-423f-8be2-01f583c407a3
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-default-api
+  name: Cardiff University Echo Default API
+  description: >-
+    Gateway connectivity-test catch-all path. 1 operation(s), from Cardiff's own EchoTest
+    contract on the api.data.cardiff.ac.uk gateway (base path /echo/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/echo/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-echo.yaml
+  tags: []
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-default-api-openapi.yml
   - type: Documentation
-    url: https://data.cardiff.ac.uk/devportal/apis/157609f4-814a-4cac-aaac-384f700b64ea
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-test-api
+  name: Cardiff University Echo Test API
+  description: >-
+    Gateway connectivity-test endpoint. 1 operation(s), from Cardiff's own EchoTest contract on
+    the api.data.cardiff.ac.uk gateway (base path /echo/v1).
+  humanURL: https://data.cardiff.ac.uk/devportal/
+  baseURL: https://api.data.cardiff.ac.uk/echo/v1
+  x-operator: institution
+  x-source-contract: openapi/_original/cardiff-echo.yaml
+  tags:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/cardiff-test-api-openapi.yml
+  - type: Documentation
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+    x-liveness-note: >-
+      302 to http://outage.cf.ac.uk/default/ (University service-unavailable page) on every
+      path of data.cardiff.ac.uk at the time of probing. Kept because it is the canonical
+      documentation location and the host is in maintenance, not decommissioned.
+  - type: Signup
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+- aid: cardiff:cardiff-orca-oai-pmh
+  name: ORCA OAI-PMH Interface
+  description: >-
+    Online Research @ Cardiff (ORCA) is Cardiff University's own EPrints institutional
+    repository, listed as an IT service the University runs. Its OAI-PMH interface has been
+    registered under Cardiff University in the EPrints Registry of Open Access Repositories
+    since 25 October 2005. Institution-operated: the host is on cardiff.ac.uk and the software
+    is self-hosted EPrints, not a vendor tenancy. Machine-readable but not an OpenAPI - OAI-PMH
+    is its contract.
+  humanURL: https://orca.cardiff.ac.uk/information.html
+  baseURL: https://orca.cardiff.ac.uk/cgi/oai2
+  x-operator: institution
+  tags:
+  - Research Repository
+  - OAI-PMH
+  - Open Access
+  properties:
+  - type: Documentation
+    url: https://roar.eprints.org/957/
+  - type: Conformance
+    url: conformance/cardiff-education-standards.yml
+- aid: cardiff:cardiff-status-api
+  name: Cardiff University IT Status API
+  description: >-
+    Cardiff University publishes IT service status on an Atlassian Statuspage at
+    status.cardiff.ac.uk, which carries the standard Statuspage v2 JSON API. Verified live:
+    summary.json returned 200 with 40 named Cardiff service components. The data is Cardiff's;
+    the contract is Atlassian's, so this is recorded as a tenant surface and no vendor spec is
+    saved under this slug.
+  humanURL: https://status.cardiff.ac.uk/
+  baseURL: https://status.cardiff.ac.uk/api/v2/
+  x-operator: tenant
+  x-platform: Atlassian Statuspage
+  tags:
+  - Status
+  - Operational Transparency
+  properties:
+  - type: Documentation
+    url: https://status.cardiff.ac.uk/api/v2/summary.json
+- aid: cardiff:cardiff-research-data-repository
+  name: Cardiff University Research Data Repository (Figshare tenancy)
+  description: >-
+    Cardiff's research data repository at research-data.cardiff.ac.uk is a Figshare for
+    Institutions instance - the host CNAMEs to proxy-eu-01.figshare.com, and Cardiff's own
+    DataCite repository client bl.cardiff declares both research-data.cardiff.ac.uk and
+    cardiff.figshare.com among its domains. The datasets and the DOIs under prefix 10.17035 are
+    Cardiff's; the API is Figshare's. Recorded as the tenant relationship it is. Figshare's
+    generic contract is NOT saved under this slug - it belongs to all/figshare.
+  humanURL: https://research-data.cardiff.ac.uk/
+  x-operator: tenant
+  x-platform: Figshare for Institutions
+  x-vendor-repo: all/figshare
+  tags:
+  - Research Data
+  - Research Repository
+  properties:
+  - type: Documentation
+    url: https://api.datacite.org/clients/bl.cardiff
+- aid: cardiff:cardiff-research-portal
+  name: Cardiff University Research Portal (Converis tenancy)
+  description: >-
+    research.cardiff.ac.uk is Cardiff's research information system, running on Clarivate
+    Converis - the host CNAMEs to cu.converis.clarivate.com and the University's IT status page
+    lists "Research Portal (Converis)" as a service. Cardiff's DataCite client independently
+    names cu.converis.thomsonreuters.com among its domains. Tenant: Cardiff's research record,
+    Clarivate's contract.
+  humanURL: https://research.cardiff.ac.uk/converis/portal/overview?lang=en_GB
+  x-operator: tenant
+  x-platform: Clarivate Converis
+  tags:
+  - Research Information
+  - Research Repository
+  properties:
+  - type: Documentation
+    url: https://api.datacite.org/clients/bl.cardiff
+- aid: cardiff:cardiff-librarysearch
+  name: Cardiff LibrarySearch (Ex Libris Primo tenancy)
+  description: >-
+    librarysearch.cardiff.ac.uk is Cardiff's discovery layer, an Ex Libris Primo view
+    (vid=44WHELF_CAR:CAR) sitting on the WHELF shared Alma library management system; the IT
+    status page lists ALMA, Primo and Leganto as separate Cardiff services. Vendor-operated
+    discovery under a Cardiff subdomain: tenant, and no Ex Libris contract is saved here.
+  humanURL: https://librarysearch.cardiff.ac.uk/
+  x-operator: tenant
+  x-platform: Ex Libris Primo VE / Alma (WHELF consortium)
+  tags:
+  - Library
+  - Discovery
+  properties:
+  - type: Documentation
+    url: https://librarysearch.cardiff.ac.uk/nde/search?vid=44WHELF_CAR%3ACAR
 common:
+  - type: Website
+    url: https://www.cardiff.ac.uk/
+    x-liveness: live-bot-challenged-2026-08-30
+  - type: DeveloperPortal
+    url: https://data.cardiff.ac.uk/devportal/
+    x-liveness: dead-2026-08-30
+  - type: OpenData
+    url: https://data.cardiff.ac.uk/
+    x-operator: institution
+    x-liveness: dead-2026-08-30
+  - type: IdentityFederation
+    url: https://idp.cardiff.ac.uk/idp/shibboleth
+    name: Cardiff University Shibboleth IdP (UK Access Management Federation)
+    x-operator: institution
+    x-liveness: live-2026-08-30
+    x-entity-id: https://idp.cardiff.ac.uk/shibboleth
+  - type: IdentityFederation
+    url: http://metadata.ukfederation.org.uk/ukfederation-metadata.xml
+    name: UK Access Management Federation metadata aggregate (carries Cardiff's curated entity)
+    x-operator: institution
+    x-liveness: live-2026-08-30
+  - type: ResearchRepository
+    url: https://orca.cardiff.ac.uk/
+    name: ORCA - Online Research @ Cardiff (EPrints)
+    x-operator: institution
+    x-liveness: live-bot-challenged-2026-08-30
+  - type: ResearchRepository
+    url: https://research-data.cardiff.ac.uk/
+    name: Cardiff University Research Data Repository
+    x-operator: tenant
+    x-platform: Figshare for Institutions
+  - type: LibraryCatalog
+    url: https://librarysearch.cardiff.ac.uk/
+    x-operator: tenant
+    x-platform: Ex Libris Primo VE
+    x-liveness: live-2026-08-30
+  - type: CourseCatalog
+    url: https://data.cardiff.ac.uk/devportal/
+    name: Courses, Modules and Lookups APIs on the Cardiff gateway
+    x-operator: institution
+    x-liveness: dead-2026-08-30
+  - type: ResearchComputing
+    url: https://arcca.github.io/
+    name: Advanced Research Computing @ Cardiff (ARCCA)
+    x-operator: institution
+    x-liveness: live-2026-08-30
+  - type: GitHubOrganization
+    url: https://github.com/ARCCA
+    x-operator: institution
+    x-liveness: live-2026-08-30
+    x-public-repos: 43
+  - type: GitHubOrganization
+    url: https://github.com/cardiffnlp
+    name: Cardiff NLP research group
+    x-operator: institution
+    x-liveness: live-2026-08-30
+    x-public-repos: 13
+  - type: Status
+    url: https://status.cardiff.ac.uk/
+    x-operator: tenant
+    x-platform: Atlassian Statuspage
+    x-liveness: live-2026-08-30
+  - type: AIPolicy
+    url: https://sites.cardiff.ac.uk/ilrb/using-gen-ai-to-support-your-literature-searching/
+    name: Cardiff Information Literacy Resource Bank - generative AI guidance
+    x-liveness: live-2026-08-30
+  - type: TermsOfService
+    url: http://www.cardiff.ac.uk/terms/
+    x-liveness: live-bot-challenged-2026-08-30
+    x-source: info.termsOfService in all five source contracts
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/cardiff-university/
+    x-liveness: live-999-2026-08-30
+  - type: Conformance
+    url: conformance/cardiff-education-standards.yml
+    name: Education-regime domain standard conformance
   - type: CapabilityMap
     url: capabilities/cardiff-capability-edges.yml
     name: Cardiff University Business Capability Map
@@ -422,14 +637,6 @@ common:
     url: authentication/cardiff-authentication.yml
   - type: OAuthScopes
     url: scopes/cardiff-scopes.yml
-  - type: Website
-    url: https://www.cardiff.ac.uk/
-  - type: DeveloperPortal
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: Authentication
-    url: https://data.cardiff.ac.uk/devportal/
-  - type: LinkedIn
-    url: https://www.linkedin.com/school/cardiff-university/
   - type: Plans
     url: plans/cardiff-plans-pricing.yml
   - type: RateLimits
@@ -441,3 +648,101 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Cardiff is one of the genuinely institution-operated cases in this cohort: five REST contracts
+    authored by the University and served from its own WSO2 gateway on api.data.cardiff.ac.uk, plus
+    a registered Shibboleth IdP, a self-hosted EPrints OAI-PMH interface, a DataCite repository
+    client with its own DOI prefix, and two Crossref members. No vendor contract is attributed to
+    Cardiff in this repository. Two caveats are recorded rather than smoothed over. First, at probe
+    time on 2026-08-30 the whole gateway and developer portal - data.cardiff.ac.uk and
+    api.data.cardiff.ac.uk - 302-redirected every path to the University service-unavailable page at
+    outage.cf.ac.uk, so no operation could be exercised and every devportal pointer grades dead; the
+    IT status page listed no incident for it. Second, the wider cardiff.ac.uk estate, including
+    orca.cardiff.ac.uk, answers 403 to automated clients behind Cloudflare, which is a bot challenge
+    and grades live, not dead. Onboarding is gated regardless of the outage: OAuth2 client
+    credentials issued only after emailing integration@cardiff.ac.uk with a use case.
+  evidence:
+  - url: https://api.data.cardiff.ac.uk/lookups/v1/schools
+    status: 302
+    note: >-
+      302 to http://outage.cf.ac.uk/default/ - gateway in maintenance
+  - url: https://data.cardiff.ac.uk/devportal/
+    status: 302
+    note: >-
+      302 to http://outage.cf.ac.uk/default - developer portal in maintenance
+  - url: http://outage.cf.ac.uk/default/
+    status: 200
+    note: >-
+      Cardiff University "Service unavailable" page, EN/CY, points at status.cardiff.ac.uk
+  - url: https://status.cardiff.ac.uk/api/v2/summary.json
+    status: 200
+    note: >-
+      40 service components; no incident open for the API gateway or open data portal
+  - url: https://idp.cardiff.ac.uk/idp/shibboleth
+    status: 200
+    note: >-
+      Shibboleth IdP metadata, entityID https://idp.cardiff.ac.uk/shibboleth, scope
+      cardiff.ac.uk
+  - url: http://metadata.ukfederation.org.uk/ukfederation-metadata.xml
+    status: 200
+    note: >-
+      Cardiff University registered as an IdP plus four SPs
+  - url: https://api.datacite.org/clients/bl.cardiff
+    status: 200
+    note: >-
+      DataCite repository client, prefix 10.17035, domains name both tenancies
+  - url: https://api.crossref.org/members?query=cardiff&rows=10
+    status: 200
+    note: >-
+      Cardiff University Press (7948) and Wales Centre for Public Policy (32732)
+  - url: https://roar.eprints.org/957/
+    status: 200
+    note: >-
+      ORCA registered EPrints repository, OAI-PMH base orca.cf.ac.uk/cgi/oai2
+  - url: https://orca.cardiff.ac.uk/cgi/oai2?verb=Identify
+    status: 403
+    note: >-
+      Cloudflare bot challenge - live, not dead
+  - url: https://www.cardiff.ac.uk/
+    status: 403
+    note: >-
+      Cloudflare bot challenge on the main site - live, not dead
+  - url: https://research-data.cardiff.ac.uk/
+    status: 202
+    note: >-
+      CNAME proxy-eu-01.figshare.com; AWS WAF challenge (a non-existent tenant returns 202 too,
+      so the CNAME is the evidence, not the code)
+  - url: https://librarysearch.cardiff.ac.uk/
+    status: 200
+    note: >-
+      Ex Libris Primo VE, vid=44WHELF_CAR:CAR
+  - url: https://api.github.com/orgs/ARCCA
+    status: 200
+    note: >-
+      Advanced Research Computing @ Cardiff University, 43 public repos
+  probed: '2026-08-30'
+x-attribution:
+  audited: '2026-08-30'
+  pipeline: pipeline-university
+  institution_surfaces: 18
+  tenant_surfaces: 4
+  vendor_rejected: 1
+  vendor_rejected_detail: >-
+    Figshare. Cardiff runs a Figshare for Institutions tenancy at research-data.cardiff.ac.uk;
+    the relationship is recorded as a tenant surface and Figshare's generic api.figshare.com
+    contract is deliberately NOT saved under this slug. This is the single misattribution class
+    this pipeline exists to prevent, and Cardiff had not fallen into it - no vendor spec was
+    present to remove.
+  misbased_repaired: 13
+  misbased_detail: >-
+    Ours, not a vendor's. This repo holds five source contracts in openapi/_original/ and the
+    refine-openapis per-tag split had carried the CoursesApi title, description and base path
+    /courses/v1 onto all sixteen refined documents. Thirteen were on the wrong base and are re-
+    based from their true parent; the other three (courses, clearing-adjustments, groups) had
+    the right base and a welded title, which is also corrected. The twenty-six derived Postman
+    and OpenCollection files inherited the same wrong base and were corrected with them. The
+    audit pre-computed eleven of the thirteen; modules and publications were missed because
+    their paths collide with the Courses contract on "/" and "/{code}".
