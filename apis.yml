@@ -129,6 +129,8 @@ apis:
   x-operator: institution
   x-source-contract: openapi/_original/cardiff-courses.yaml
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -443,7 +445,8 @@ apis:
   baseURL: https://api.data.cardiff.ac.uk/echo/v1
   x-operator: institution
   x-source-contract: openapi/_original/cardiff-echo.yaml
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
