@@ -180,6 +180,8 @@ apis:
   x-operator: institution
   x-source-contract: openapi/_original/cardiff-modules.yaml
   tags:
+  - Assessment
+  tags_raw:
   - Assessments
   properties:
   - type: OpenAPI
