@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  description: The Module API provides a simple interface for applications that want to retrieve lists of modules or information relating to a specific module taught in Cardiff University. Using the Modules API, clients can filter modules by school, language, level and year.
   version: v1
-  title: CoursesApi Assessments Modules API
+  title: ModulesApi Modules API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.data.cardiff.ac.uk/courses/v1
+- url: https://api.data.cardiff.ac.uk/modules/v1
 security:
 - default: []
 tags:
@@ -20,7 +20,7 @@ paths:
     get:
       tags:
       - Modules
-      summary: Returns specified module.
+      summary: Returns specified module
       description: This endpoint returns the module with the specified module code.
       parameters:
       - name: code
@@ -178,6 +178,8 @@ paths:
       security:
       - default: []
       x-auth-type: Application
+      operationId: getByCodeOccurrencesByOccurrence
+      x-operation-id-source: derived
   /{code}/assessments:
     get:
       tags:
@@ -219,11 +221,13 @@ paths:
       security:
       - default: []
       x-auth-type: Application
+      operationId: getByCodeAssessments
+      x-operation-id-source: derived
   /{code}:
     get:
       tags:
       - Modules
-      summary: Returns specified module.
+      summary: Returns specified module
       description: This endpoint returns the module with the specified module code.
       parameters:
       - name: code
@@ -393,6 +397,8 @@ paths:
       security:
       - default: []
       x-auth-type: Application
+      operationId: getByCode
+      x-operation-id-source: derived
   /:
     get:
       tags:
@@ -544,12 +550,14 @@ paths:
       security:
       - default: []
       x-auth-type: Application
+      operationId: getRoot
+      x-operation-id-source: derived
   /module-catalogues:
     get:
       tags:
       - Modules
       summary: Returns the module catalogues
-      description: This endpoint returns module catalogues data in json, html or doc format.  Searching by 1. School + Academic year + Level or 2. Module code + Occurence
+      description: This endpoint returns module catalogues data in json, html or doc format. Searching by 1. School + Academic year + Level or 2. Module code + Occurence
       parameters:
       - name: school
         in: query
@@ -716,6 +724,8 @@ paths:
       security:
       - default: []
       x-auth-type: Application
+      operationId: getModuleCatalogues
+      x-operation-id-source: derived
 components:
   schemas:
     Assessment:
@@ -788,5 +798,5 @@ components:
       flows:
         implicit:
           scopes:
-            clearing: Allows users to see clearing data.
+            lc_rollover: ''
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize

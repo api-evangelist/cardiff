@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  description: The Lookup API provides a simple interface for applications that just want to retrieve a list of items. Using the Lookup API, clients can retrieve lists of level/semester codes, subjects, and schools used within Cardiff University.
   version: v1
-  title: CoursesApi Assessments Semesters API
+  title: LookupsApi Semesters API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.data.cardiff.ac.uk/courses/v1
+- url: https://api.data.cardiff.ac.uk/lookups/v1
 security:
 - default: []
 tags:
@@ -20,7 +20,7 @@ paths:
     get:
       tags:
       - Semesters
-      summary: Retrieve a list of all semesters used within the Univesity.
+      summary: Retrieve a list of all semesters used within the Univesity
       parameters:
       - name: limit
         in: query
@@ -71,6 +71,8 @@ paths:
       - default: []
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
+      operationId: getSemesters
+      x-operation-id-source: derived
 components:
   schemas:
     Meta:
@@ -104,6 +106,5 @@ components:
       type: oauth2
       flows:
         implicit:
-          scopes:
-            clearing: Allows users to see clearing data.
+          scopes: {}
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize

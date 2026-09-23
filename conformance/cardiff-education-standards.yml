@@ -1,0 +1,180 @@
+generated: '2026-08-30'
+method: searched
+x-probe-method: probed
+source: >-
+  Live probes plus three independent machine-readable registries: the UK Access Management
+  Federation SAML metadata aggregate, the DataCite REST API, the Crossref REST API, and the
+  EPrints Registry of Open Access Repositories (ROAR). Each hit below names the exact record
+  the evidence was read from.
+description: >-
+  Conformance of Cardiff University against the standards[] of the Kin Score `education`
+  regulatory regime (scim, lti, oneroster, ed-fi, caliper, qti, oai-pmh, shibboleth, saml,
+  orcid, datacite, crossref). Reward-only: a standard is listed as `conformant` only where a
+  third-party registry or a live response carries Cardiff's own identifier. Everything not
+  evidenced is recorded as `not_evidenced`, which means we found no proof — not that Cardiff
+  does not do it.
+institution:
+  name: Cardiff University
+  ror: https://ror.org/03kk7td41
+  registrable_domain: cardiff.ac.uk
+  legacy_domain: cf.ac.uk
+
+conformance:
+
+- standard: saml
+  status: conformant
+  operator: institution
+  summary: >-
+    Cardiff University operates a SAML 2.0 Identity Provider registered in the UK Access
+    Management Federation under its own organisation name, with a production and a pre-production
+    entity, plus four Service Provider entities it registers itself.
+  entities:
+  - entityID: https://idp.cardiff.ac.uk/shibboleth
+    role: IdP
+    organization: Cardiff University
+    scope: cardiff.ac.uk
+  - entityID: https://idp-preprod.cardiff.ac.uk/shibboleth
+    role: IdP
+    organization: Cardiff University (Test - Preprod)
+    scope: cardiff.ac.uk
+  - entityID: https://www.europeansources.info/shibboleth-sp
+    role: SP
+    organization: Cardiff University
+  - entityID: https://samlviewer.cf.ac.uk/shibboleth
+    role: SP
+    organization: Cardiff University
+  - entityID: https://shib-sp-dev.cf.ac.uk/shibboleth
+    role: SP
+    organization: Cardiff University
+  - entityID: https://www.walesdtc.ac.uk/shibboleth
+    role: SP
+    organization: Cardiff University
+  evidence:
+  - url: http://metadata.ukfederation.org.uk/ukfederation-metadata.xml
+    status: 200
+    note: >-
+      87.9 MB signed federation aggregate, 11,166 EntityDescriptors. Cardiff's entities located by
+      OrganizationDisplayName "Cardiff University". Probed 2026-08-30.
+  - url: https://idp.cardiff.ac.uk/idp/shibboleth
+    status: 200
+    note: >-
+      The IdP's own metadata endpoint answers, entityID https://idp.cardiff.ac.uk/shibboleth,
+      shibmd:Scope cardiff.ac.uk. Caveat recorded honestly: the served document is still the
+      Shibboleth stock template — it opens "This is example metadata only" and its mdui:DisplayName
+      reads "A name for the IdP at idp.cardiff.ac.uk". The federation aggregate, not this endpoint,
+      carries the curated entity.
+
+- standard: shibboleth
+  status: conformant
+  operator: institution
+  summary: >-
+    The IdP is a Shibboleth IdP (v5 — the DNS CNAME is mnetscl-direct-idpV5-vip.cf.ac.uk) and it
+    publishes shibmd: extensions, which are Shibboleth's own metadata vocabulary.
+  evidence:
+  - url: https://idp.cardiff.ac.uk/idp/shibboleth
+    status: 200
+    note: 'Response carries xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" and <shibmd:Scope>cardiff.ac.uk</shibmd:Scope>.'
+  - url: http://metadata.ukfederation.org.uk/ukfederation-metadata.xml
+    status: 200
+
+- standard: datacite
+  status: conformant
+  operator: institution
+  summary: >-
+    Cardiff University is a DataCite consortium organisation with its own repository client and
+    DOI prefix, held since 2015. The client record's declared domains independently confirm both
+    of Cardiff's vendor tenancies.
+  identifiers:
+    datacite_provider: lnip
+    datacite_client: bl.cardiff
+    doi_prefix: '10.17035'
+    member_type: consortium_organization
+    client_created: '2015-03-25'
+    declared_domains:
+    - research.cardiff.ac.uk
+    - cu.converis.thomsonreuters.com
+    - figshare.com
+    - cardiff.figshare.com
+    - research-data.cardiff.ac.uk
+  evidence:
+  - url: https://api.datacite.org/providers/lnip
+    status: 200
+    note: 'name "Cardiff University", website https://www.cardiff.ac.uk/libraries/, rorId https://ror.org/03kk7td41.'
+  - url: https://api.datacite.org/clients/bl.cardiff
+    status: 200
+    note: 'clientType repository; the domains field is the source of the two tenancy confirmations above.'
+  - url: https://api.datacite.org/clients/bl.cardiff/prefixes
+    status: 200
+    note: 'returns exactly one prefix: 10.17035.'
+
+- standard: crossref
+  status: conformant
+  operator: institution
+  summary: >-
+    Two Crossref members are Cardiff University bodies — the university's own press and one of its
+    research centres — each with its own DOI prefix.
+  members:
+  - id: '7948'
+    name: Cardiff University Press
+    prefixes: ['10.18573']
+  - id: '32732'
+    name: Wales Centre for Public Policy - Cardiff University
+    prefixes: ['10.54454']
+  evidence:
+  - url: https://api.crossref.org/members?query=cardiff&rows=10
+    status: 200
+
+- standard: oai-pmh
+  status: conformant
+  operator: institution
+  summary: >-
+    ORCA (Online Research @ Cardiff) is Cardiff's EPrints institutional repository and exposes an
+    OAI-PMH interface. Registered in ROAR since 25 October 2005 under Cardiff University.
+  endpoint:
+    base_url: https://orca.cardiff.ac.uk/cgi/oai2
+    legacy_base_url: http://orca.cf.ac.uk/cgi/oai2
+    software: EPrints
+  evidence:
+  - url: https://roar.eprints.org/957/
+    status: 200
+    note: >-
+      Registry of Open Access Repositories record — "Online Research @ Cardiff (ORCA)", Cardiff
+      University, EPrints, "OAI-PMH Interface: http://orca.cf.ac.uk/cgi/oai2".
+  - url: https://orca.cardiff.ac.uk/cgi/oai2?verb=Identify
+    status: 403
+    note: >-
+      LIVE, not dead. orca.cardiff.ac.uk sits behind Cloudflare and returns 403 to every automated
+      client we tried, including a full browser User-Agent and Accept header set. Its robots.txt
+      answers 200 with a Cloudflare-managed Content-Signal block (search=yes, ai-train=no,
+      use=reference), which is itself proof the host is up and serving. We did not obtain an
+      Identify response, so the base URL above is registry-attested rather than probe-attested.
+  - url: https://orca.cardiff.ac.uk/robots.txt
+    status: 200
+
+- standard: scim
+  status: not_evidenced
+- standard: lti
+  status: not_evidenced
+  note: >-
+    Cardiff runs Learning Central (Blackboard) and Panopto, both of which are LTI-capable, but the
+    LTI conformance in that arrangement is the vendor's and no Cardiff-side registration is public.
+- standard: oneroster
+  status: not_evidenced
+- standard: ed-fi
+  status: not_evidenced
+  note: US K-12 standard; not applicable to a UK university.
+- standard: caliper
+  status: not_evidenced
+- standard: qti
+  status: not_evidenced
+- standard: orcid
+  status: not_evidenced
+  note: >-
+    Cardiff's Converis research portal and ORCA both integrate ORCID in practice, but every public
+    record of that integration is Clarivate's or EPrints', not Cardiff's. Deliberately NOT claimed.
+
+summary:
+  conformant: 5
+  standards: [saml, shibboleth, datacite, crossref, oai-pmh]
+  not_evidenced: 7
+  probed: '2026-08-30'

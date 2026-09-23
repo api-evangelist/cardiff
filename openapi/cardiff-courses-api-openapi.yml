@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
   version: v1
-  title: CoursesApi Assessments Courses API
+  title: CoursesApi Courses API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -20,7 +20,7 @@ paths:
     get:
       tags:
       - Courses
-      summary: Returns specified course.
+      summary: Returns specified course
       description: This endpoint returns the course with the specified course code.
       parameters:
       - name: code
@@ -184,11 +184,13 @@ paths:
       security:
       - default: []
       x-auth-type: Application & Application User
+      operationId: getByCode
+      x-operation-id-source: derived
   /{code}/descriptions:
     get:
       tags:
       - Courses
-      summary: Returns descriptions for the course.
+      summary: Returns descriptions for the course
       description: This endpoint returns the descriptions for the specified course.
       parameters:
       - name: code
@@ -243,11 +245,13 @@ paths:
       security:
       - default: []
       x-auth-type: Application & Application User
+      operationId: getByCodeDescriptions
+      x-operation-id-source: derived
   /{code}/structure:
     get:
       tags:
       - Courses
-      summary: Returns the module structure for a course.
+      summary: Returns the module structure for a course
       description: This endpoint returns the module structure for the specified course code.
       parameters:
       - name: code
@@ -382,6 +386,8 @@ paths:
       security:
       - default: []
       x-auth-type: Application & Application User
+      operationId: getByCodeStructure
+      x-operation-id-source: derived
   /:
     get:
       tags:
@@ -580,6 +586,8 @@ paths:
       security:
       - default: []
       x-auth-type: Application
+      operationId: getRoot
+      x-operation-id-source: derived
 components:
   schemas:
     Meta:

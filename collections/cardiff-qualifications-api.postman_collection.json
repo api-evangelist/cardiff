@@ -159,7 +159,7 @@
   "variable": [
     {
       "type": "string",
-      "value": "https://api.data.cardiff.ac.uk/courses/v1",
+      "value": "https://api.data.cardiff.ac.uk/lookups/v1",
       "key": "baseUrl"
     }
   ],

@@ -28,7 +28,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/years",
+            "url": "https://api.data.cardiff.ac.uk/lookups/v1/years",
             "params": [
               {
                 "name": "mode",

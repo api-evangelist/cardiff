@@ -28,7 +28,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/",
+            "url": "https://api.data.cardiff.ac.uk/publications/v1/",
             "params": [
               {
                 "name": "creator",
@@ -97,7 +97,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/:eprintid",
+            "url": "https://api.data.cardiff.ac.uk/publications/v1/:eprintid",
             "params": [
               {
                 "name": "eprintid",

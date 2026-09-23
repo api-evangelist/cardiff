@@ -1,16 +1,9 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  title: EchoTest Test API
   version: v1
-  title: CoursesApi Assessments Test API
-  termsOfService: http://www.cardiff.ac.uk/terms/
-  contact:
-    name: integration@cardiff.ac.uk
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.data.cardiff.ac.uk/courses/v1
+- url: https://api.data.cardiff.ac.uk/echo/v1
 security:
 - default: []
 tags:
@@ -35,12 +28,15 @@ paths:
       x-throttling-tier: Unlimited
       tags:
       - Test
+      summary: Get test
+      x-summary-source: derived
+      operationId: getTest
+      x-operation-id-source: derived
 components:
   securitySchemes:
     default:
       type: oauth2
       flows:
         implicit:
-          scopes:
-            clearing: Allows users to see clearing data.
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize
+          scopes: {}

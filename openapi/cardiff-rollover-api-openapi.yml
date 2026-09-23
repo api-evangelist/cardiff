@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  description: The Courses API provides a simple interface for applications that want to retrieve lists of courses or information relating to a specific course within Cardiff University. Using the Courses API, clients can filter courses by school, language, level and year.
+  description: The Module API provides a simple interface for applications that want to retrieve lists of modules or information relating to a specific module taught in Cardiff University. Using the Modules API, clients can filter modules by school, language, level and year.
   version: v1
-  title: CoursesApi Assessments Rollover API
+  title: ModulesApi Rollover API
   termsOfService: http://www.cardiff.ac.uk/terms/
   contact:
     name: integration@cardiff.ac.uk
@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-- url: https://api.data.cardiff.ac.uk/courses/v1
+- url: https://api.data.cardiff.ac.uk/modules/v1
 security:
 - default: []
 tags:
@@ -75,6 +75,8 @@ paths:
       - default:
         - lc_rollover
       x-auth-type: Application & Application User
+      operationId: getMap
+      x-operation-id-source: derived
   /rollover/{year}:
     get:
       tags:
@@ -128,6 +130,8 @@ paths:
       - default:
         - lc_rollover
       x-auth-type: Application & Application User
+      operationId: getRolloverByYear
+      x-operation-id-source: derived
 components:
   schemas:
     Meta:
@@ -162,5 +166,5 @@ components:
       flows:
         implicit:
           scopes:
-            clearing: Allows users to see clearing data.
+            lc_rollover: ''
           authorizationUrl: https://api.data.cardiff.ac.uk/authorize

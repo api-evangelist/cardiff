@@ -28,7 +28,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code/occurrences/:occurrence",
+            "url": "https://api.data.cardiff.ac.uk/modules/v1/:code/occurrences/:occurrence",
             "params": [
               {
                 "name": "code",
@@ -61,7 +61,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/:code/occurrences",
+            "url": "https://api.data.cardiff.ac.uk/modules/v1/:code/occurrences",
             "params": [
               {
                 "name": "code",
@@ -94,7 +94,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/occurrences",
+            "url": "https://api.data.cardiff.ac.uk/modules/v1/occurrences",
             "params": [
               {
                 "name": "year",
@@ -175,7 +175,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.data.cardiff.ac.uk/courses/v1/learn-occurrences",
+            "url": "https://api.data.cardiff.ac.uk/modules/v1/learn-occurrences",
             "params": [
               {
                 "name": "year",
