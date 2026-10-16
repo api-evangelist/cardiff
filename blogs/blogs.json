@@ -1,0 +1,11 @@
+{
+  "repo": "cardiff",
+  "feeds": [
+    {
+      "source": "https://www.cardiff.ac.uk/news/",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
